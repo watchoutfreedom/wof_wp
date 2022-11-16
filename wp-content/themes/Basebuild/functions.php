@@ -62,49 +62,11 @@ require_once( 'library/gutenberg.php' );
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
 
-/**
- * WordPress admin customisation
- */
-function my_login_logo() { ?>
-	<style type="text/css">
-
-		html {
-			background: #f6f6f6;
-		}
-
-		body.login div#login h1 a {
-			/* background: url(<?php echo get_bloginfo( 'template_directory' ) ?>/assets/images/theme/medelalogo.svg) no-repeat !important;*/
-			padding-bottom: 0;
-			background-size: 300px 57px;
-			height: 57px;
-			margin: 0 auto 25px;
-			width: 300px;
-		}
-
-		body.login {
-			/* background: #000 url(<?php echo get_bloginfo( 'template_directory' ) ?>/assets/images/theme/splash-screen.jpg) no-repeat !important;*/
-			background-size: cover !important;
-			background-position: 50% !important;
-			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-			font-weight: 300;
-			color: #757474;
-		}
-
-		body #login {
-			position: relative;;
-			overflow: hidden;
-		}
-
-	</style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
-
-
 // remove admin menu items we don't use / need
 
 function remove_menu_items() {
   global $menu;
-  $restricted = array(__('Links'), __('Comments'), __('Posts'),__('Tools'),__('Users'));
+  $restricted = array(('Comments'));
   end ($menu);
   while (prev($menu)){
     $value = explode(' ',$menu[key($menu)][0]);
@@ -112,8 +74,23 @@ function remove_menu_items() {
       unset($menu[key($menu)]);}
     }
   }
+add_action('admin_menu', 'remove_menu_items');
 
-//add_action('admin_menu', 'remove_menu_items');
+function custom_menu_order($menu_ord) {
+    if (!$menu_ord) return true;
+    return array(
+     'index.php', // this represents the dashboard link
+     'edit.php?post_type=activities', 
+     'edit.php?post_type=brainstorms', 
+     'edit.php?post_type=services', 
+     'edit.php?post_type=products',
+     'edit.php?post_type=page', // this is the default page menu
+	 'upload.php' // this is the default upload menu
+
+ );
+}
+add_filter('custom_menu_order', 'custom_menu_order');
+add_filter('menu_order', 'custom_menu_order');
 
 
 //  remove admin item we don't use / need
