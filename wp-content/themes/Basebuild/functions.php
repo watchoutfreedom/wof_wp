@@ -57,10 +57,13 @@ require_once( 'library/responsive-images.php' );
 /** Gutenberg editor support */
 require_once( 'library/gutenberg.php' );
 
-
 @ini_set( 'upload_max_size' , '64M' );
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
+
+
+// disable gutenberg editor
+add_filter('use_block_editor_for_post', '__return_false', 10);
 
 // remove admin menu items we don't use / need
 
