@@ -136,5 +136,104 @@ function disable_parent_menu_link()
 <?php
 }
 
+add_filter('wp_nav_menu_items', 'crunchify_add_login_logout_menu', 10, 2);
+function crunchify_add_login_logout_menu($items, $args) {
+        ob_start();
+        wp_loginout('index.php');
+        $loginoutlink = ob_get_contents();
+        $loginoutlink = str_replace('Log in', 'Entrar', $loginoutlink);
+        ob_end_clean();
+        $items .= '<li style=" float: right;">'. $loginoutlink .'</li>';
+    return $items;
+}
+
+add_filter( 'login_url', function( $login_url){
+  // Change here your login page url
+  $login_url = home_url('/login');
+  return $login_url;
+}, 10, 3);
+
+add_action('wp_login_failed', '_login_failed_redirect');
+
+function _login_failed_redirect( $username ){
+
+  $user = get_user_by('login', $username );
+
+  if(!$user){
+    //Username incorrect
+    wp_redirect(home_url('/login') .'?login_error=1');
+
+  }else{
+   //Username Password combination incorrect
+    wp_redirect(home_url('/login') .'?login_error=2');
+  }
+
+}
+
+function populate_answer_to($field) {
+  // only on front end
+  if (is_admin()) {
+    return $field;
+  }
+  if (isset($_GET['id']) && $_GET['action'] == 'create') {
+    $field['value'] = $_GET['id'];
+  }
+  return $field;
+}
+
+add_filter('acf/prepare_field/key=field_6375339e513ad', 'populate_answer_to');
+
+function register_user($post_id){
+
+	if ( $post_id == 'new_user' ){
+
+    $user_email = $_POST['acf']['field_6382c14839766'];
+    $password = $_POST['acf']['field_6382c1b639768'];
+      
+
+    // create user
+    $user_id = wp_insert_user([
+      'user_pass'				=> $password,
+      'user_login' 			=> $user_email,
+      'user_email'      => $user_email,
+      'first_name' => ( ! empty($_POST['acf']['field_599c479c8c0a9']) ? $_POST['acf']['field_599c479c8c0a9'] : '' ),
+      'last_name' => ( ! empty($_POST['acf']['field_599c480e8c0aa']) ? $_POST['acf']['field_599c480e8c0aa'] : '' ),
+      'role' => 'contributor'
+    ]);
+
+    // update phone and skills
+    update_field('field_6382d30135418',$_POST['acf']['field_6382c15c39767'],'user_'.$user_id);
+    update_field('field_6382d31035419',$_POST['acf']['field_6382c25fbc87b'],'user_'.$user_id);
+
+  }
+}
+add_filter('acf/pre_save_post','register_user');
+
+
+function my_acf_validate_email( $valid, $value, $field, $input_name ) {
+
+    // Bail early if value is already invalid.
+    if( $valid !== true )
+        return $valid;
+
+    if ( email_exists( $value ) ) { return 'Email already exists.'; }
+    
+    return $valid;
+}
+add_filter('acf/validate_value/key=field_6382c14839766', 'my_acf_validate_email', 10, 4);
+
+function my_acf_validate_password( $valid, $value, $field, $input_name ) {
+
+  // Bail early if value is already invalid.
+  if( $valid !== true )
+      return $valid;
+  if ( $value != $_POST['acf']['field_6382c1d439769']) { return 'Passwords don\'t match.'; }
+  
+  return $valid;
+}
+add_filter('acf/validate_value/key=field_6382c1b639768', 'my_acf_validate_password', 10, 4);
+
+
+
 // add_action('wp_footer', 'disable_parent_menu_link');
 ?>
