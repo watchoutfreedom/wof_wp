@@ -17,10 +17,20 @@
 
 get_header(); ?>
 
-<div class="page">
+<div class="page main-container">
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'template-parts/general'); ?>
+			<section>
+				<div class="">
+					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
+					<div class="post_type"><label for=""><?php echo $post_type ?></label></div>
+					<a href="<?php the_permalink() ?>"><h1><?php the_title(); ?></h1></a>
+					<p><?php echo get_field('excerpt',get_the_ID()) ?></p>
+					<div class="author"><span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span></div>
+					<hr>
+				</div>
+    		</section>
+
 		<?php endwhile; ?>
 
 	<?php else : ?>
