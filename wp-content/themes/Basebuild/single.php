@@ -127,28 +127,36 @@ get_header(); ?>
             <?php } ?>
 
     </section>
-    <?php if(get_post_type() == "activity"){ ?>
-        <hr>
-        <h2>Actualizaciones de proyecto</h2>
+    <?php if(get_post_type() == "activity"): ?>
         <?php 
             $linked_posts = get_field('linked_services');
             foreach (get_field('linked_products') as $linked_product)
                 $linked_posts[] = $linked_product;
             $linked_posts[] = get_field('linked_posts');
-            
-            foreach($linked_posts as $linked_post){
-            ?>
-            <section>
-                <div class="linked">
-                    <a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo get_the_post_thumbnail($linked_post->ID); ?></a>
-                    <div class="post_type"><label for=""><?php echo $linked_post->post_type ?></label></div>
-                    <a href="<?php echo get_permalink($linked_post->ID) ?>"><h1><?php echo $linked_post->post_title; ?></h1></a>
-                    <div class="excerpt"><?php echo get_field('excerpt',$linked_post->ID) ?></div>
-                </div>
-            </section>
-            <?php }
-        ?>
-    <?php } ?>
+
+            if($linked_posts):?>
+
+            <div class="linked-posts">
+                <hr>
+                <h2>Actualizaciones de proyecto</h2>
+
+            <?php 
+                foreach($linked_posts as $linked_post):?>
+                <?php if($linked_post): ?>
+                <section>
+                    <div class="linked">
+                        <a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo get_the_post_thumbnail($linked_post->ID); ?></a>
+                        <div class="post_type"><label for=""><?php echo $linked_post->post_type ?></label></div>
+                        <a href="<?php echo get_permalink($linked_post->ID) ?>"><h1><?php echo $linked_post->post_title; ?></h1></a>
+                        <div class="excerpt"><?php echo get_field('excerpt',$linked_post->ID) ?></div>
+                    </div>
+                </section>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
     <?php endwhile; ?>
     <?php if(get_post_type() == "activity"){ ?>
         <a class="button" href="">UNIRME</a>
