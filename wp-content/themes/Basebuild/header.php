@@ -32,6 +32,20 @@
       </div>
       <div class="header-nav" id="header-menu">
       <?php foundationpress_main_nav(); ?>
+      <?php if(is_archive()): ?>
+      <div class="header-right">
+        <ul>
+        <li><a href="">ALL</a></li>
+        <?php 
+        if(is_post_type_archive("service")) $field = 'field_6377dd09cb415';
+        if(is_post_type_archive("product")) $field = 'field_6377e5090ad10';
+        if(is_post_type_archive("activity")) $field = 'field_637541b007ca0';
+          foreach(get_field_object($field)['choices'] as $choice):?>
+            <li><a href="/<?php echo get_post_type().'/'.$choice ?>"><?php echo $choice ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <?php endif; ?>
       </div>
     </div>
   </header>
