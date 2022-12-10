@@ -143,7 +143,7 @@ function crunchify_add_login_logout_menu($items, $args) {
         $loginoutlink = ob_get_contents();
         $loginoutlink = str_replace('Log in', 'Entrar', $loginoutlink);
         ob_end_clean();
-        $items .= '<li style=" float: right;">'. $loginoutlink .'</li>';
+        $items .= '<li class="menu-item nav-item login">'. $loginoutlink .'</li>';
     return $items;
 }
 
