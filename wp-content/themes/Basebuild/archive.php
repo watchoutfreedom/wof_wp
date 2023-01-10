@@ -17,13 +17,28 @@
 
 get_header(); ?>
 
+<h1><?php echo get_query_var('type'); ?></h1>
+<h4><?php echo get_the_post_type_description(); ?></h4>
+
 <div class="page main-container">
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
+		<?php print_r(the_post()) ?>
 			<section>
 				<div class="">
 					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
-					<div class="post_type"><label for=""><?php echo $post_type ?></label></div>
+					<div class="subtitle">
+						<label for="">
+							<?php 
+							if($post_type == 'activity'){
+								if(get_field('location',get_the_ID())) echo get_field('location',get_the_ID()); 
+								if(get_field('initial_date',get_the_ID())) echo " | ".get_field('initial_date',get_the_ID());
+								if(get_field('end_date',get_the_ID())) echo " - ".get_field('end_date',get_the_ID());
+
+							}
+							?>
+						</label>
+					</div>
 					<a href="<?php the_permalink() ?>"><h1><?php the_title(); ?></h1></a>
 					<p><?php echo get_field('excerpt',get_the_ID()) ?></p>
 					<div class="author"><span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span></div>
