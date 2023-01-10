@@ -83,10 +83,10 @@ function custom_menu_order($menu_ord) {
     if (!$menu_ord) return true;
     return array(
      'index.php', // this represents the dashboard link
-     'edit.php?post_type=activities', 
-     'edit.php?post_type=brainstorms', 
-     'edit.php?post_type=services', 
-     'edit.php?post_type=products',
+     'edit.php?post_type=activity', 
+     'edit.php?post_type=brainstorm', 
+     'edit.php?post_type=service', 
+     'edit.php?post_type=product',
      'edit.php?post_type=page', // this is the default page menu
 	 'upload.php' // this is the default upload menu
 
@@ -205,6 +205,8 @@ function register_user($post_id){
     update_field('field_6382d30135418',$_POST['acf']['field_6382c15c39767'],'user_'.$user_id);
     update_field('field_6382d31035419',$_POST['acf']['field_6382c25fbc87b'],'user_'.$user_id);
 
+    wp_new_user_notification($user_id);
+
   }
 }
 add_filter('acf/pre_save_post','register_user');
@@ -236,4 +238,24 @@ add_filter('acf/validate_value/key=field_6382c1b639768', 'my_acf_validate_passwo
 
 
 // add_action('wp_footer', 'disable_parent_menu_link');
+
+
+function add_query_vars_filter( $vars ){
+  $vars[] = "type";
+  return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );
+
+function filter_archive_posts( $query ) {
+
+		if (  $query->is_post_type_archive() ) {
+
+      //$query->set( 'meta_key', 'activity_type' );
+      $query->set( 'meta_value', get_query_var('type') );
+		}
+  }
+add_action( 'pre_get_posts', 'filter_archive_posts' );
+
+
+
 ?>
