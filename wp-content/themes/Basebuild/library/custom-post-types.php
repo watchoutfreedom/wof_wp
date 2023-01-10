@@ -44,7 +44,8 @@ function create_post_type() {
 		'has_archive' => true,
 		'taxonomies' => array('category', 'post_tag'),
 		'menu_icon'   => 'dashicons-products',
-		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+		'description' => __( 'Lista de proyectos que impulsa o apoia WOF!','textdomain')
 		)
 	);
 
@@ -62,7 +63,7 @@ function create_post_type() {
 		'search_items'          => __( 'Search Brainstorms', 'textdomain' ),
 		'parent_item_colon'     => __( 'Parent Brainstorms:', 'textdomain' ),
 		'not_found'             => __( 'No brainstorms found.', 'textdomain' ),
-		'not_found_in_trash'    => __( 'No brainstorms found in Trash.', 'textdomain' )	
+		'not_found_in_trash'    => __( 'No brainstorms found in Trash.', 'textdomain' )
 	);
 
 	register_post_type( 'brainstorm',
