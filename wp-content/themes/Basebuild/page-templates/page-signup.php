@@ -16,7 +16,7 @@ get_header();?>
     <?php acf_form([
             'field_groups' => [ 283 ],
             'post_id'      => 'new_user',
-            'return'       => '%login%',
+            'updated_message' => __("Solicitud registrada. Confirma la suscripción en tu email", 'acf'),
             'submit_value' => __("UNIRME", 'acf')]);
     ?>
 </div>
