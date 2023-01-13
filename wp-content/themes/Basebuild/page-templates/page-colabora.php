@@ -17,7 +17,7 @@ get_header(); ?>
     </section>
 
     <p>O puedes  aportar con una cuota anual o donación</p>
-    <a href="">DONAR</a>
+    <a href="/donate">DONAR</a>
 </div>
 
 <?php wp_footer(); ?>
