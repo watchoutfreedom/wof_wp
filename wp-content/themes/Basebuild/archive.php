@@ -18,12 +18,12 @@
 get_header(); ?>
 
 <h1><?php echo get_query_var('type'); ?></h1>
+
 <h4><?php echo get_the_post_type_description(); ?></h4>
 
 <div class="page main-container">
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-		<?php print_r(the_post()) ?>
 			<section>
 				<div class="">
 					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
