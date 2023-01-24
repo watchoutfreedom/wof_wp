@@ -32,6 +32,17 @@
       </div>
       <div class="header-nav" id="header-menu">
       <?php foundationpress_main_nav(); ?>
+      <?php if ( is_home()):?>
+        <div class="header-right">
+        <ul>
+        <li><a href="/blog">ALL</a></li>
+        <?php 
+          foreach(get_tags() as $tag):?>
+            <li><a href="<?php echo get_tag_link( $tag->term_id )?>"><?php echo $tag->name ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+      <?php endif; ?>
       <?php if(is_archive()): ?>
       <div class="header-right">
         <ul>
