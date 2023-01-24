@@ -36,6 +36,8 @@ get_header(); ?>
 								if(get_field('end_date',get_the_ID())) echo " - ".get_field('end_date',get_the_ID());
 
 							}
+							if($post_type == 'service' || $post_type = 'product')
+								if(get_field('type',get_the_ID())) echo get_field('type',get_the_ID()); 		
 							?>
 						</label>
 					</div>
