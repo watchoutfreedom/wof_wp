@@ -11,7 +11,9 @@ get_header(); ?>
 
 <div class="page main-container">
         <?php $users = get_users(array(array('role' => 'contributor'))) ?>
-		<?php foreach ( $users as $user){ ?>
+		<?php foreach ( $users as $user){ 
+			if(get_field('hide_from_comunity_page','user_'.$user->data->ID)) continue; // if is hidden from comunity page
+		?>
 			<section>
 				<div class="contributor">
 					<a href="#"><img src="<?php echo get_avatar_url($user->data->ID)?>" alt=""></a>
@@ -23,7 +25,9 @@ get_header(); ?>
     		</section>
 
 		<?php } ?>
-        <a class="button" href="">UNIRME</a>
+		<section>
+        <a class="button" href="/colabora">UNIRME</a>
+		</section>
 </div>
 
 <?php get_footer();
