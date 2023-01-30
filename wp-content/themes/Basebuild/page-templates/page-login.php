@@ -2,7 +2,20 @@
 /**
 * Template Name: Custom Login Page
 */
+?>
 
+<!doctype html>
+<html class="no-js" <?php language_attributes(); ?>>
+
+<head>
+	<meta charset="<?php bloginfo('charset'); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='dns-prefetch' href='//polyfill.io' />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+	<?php wp_head(); ?>
+</head>
+
+<?php 
 if ( ! is_user_logged_in() ) {
 
     if( isset($_GET['action']) && $_GET['action'] == 'lostpassword'){
