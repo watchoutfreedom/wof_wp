@@ -41,7 +41,7 @@ get_header(); ?>
 							?>
 						</label>
 					</div>
-					<a href="<?php the_permalink() ?>"><h1><?php the_title(); ?></h1></a>
+					<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<p><?php echo get_field('excerpt',get_the_ID()) ?></p>
 					<div class="author"><span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span></div>
 					<hr>
