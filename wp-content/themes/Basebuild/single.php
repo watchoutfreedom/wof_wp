@@ -147,7 +147,7 @@ get_header(); ?>
                     <div class="linked">
                         <a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo get_the_post_thumbnail($linked_post->ID); ?></a>
                         <div class="post_type"><label for=""><?php echo $linked_post->post_type ?></label></div>
-                        <a href="<?php echo get_permalink($linked_post->ID) ?>"><h1><?php echo $linked_post->post_title; ?></h1></a>
+                        <h3><a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo $linked_post->post_title; ?></a></h3>
                         <div class="excerpt"><?php echo get_field('excerpt',$linked_post->ID) ?></div>
                     </div>
                 </section>
