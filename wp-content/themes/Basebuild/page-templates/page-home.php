@@ -28,7 +28,7 @@ if($feautured = get_field('feautured_post') ){
         <div class="<?php if($featured) echo 'featured'?>">
             <a href="<?php echo get_permalink($post['ID']) ?>"><?php echo get_the_post_thumbnail($post['ID']); ?></a>
             <div class="post_type"><label for=""><?php echo $post_type ?></label></div>
-            <a href="<?php echo get_permalink($post['ID']) ?>"><h1><?php echo $post['post_title']; ?></h1></a>
+            <h2><a href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title']; ?></a></h2>
             <p><?php echo get_field('excerpt',$post['ID']) ?></p>
             <div class="author"><span><?php the_author_meta( 'user_nicename' , $post['post_author'] ); ?></span></div>
             <hr>
