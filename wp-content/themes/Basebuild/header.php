@@ -52,7 +52,7 @@
         if(is_post_type_archive("product")) $field = 'field_6377e5090ad10';
         if(is_post_type_archive("activity")) $field = 'field_637541b007ca0';
           foreach(get_field_object($field)['choices'] as $choice):?>
-            <li><a href="/<?php echo get_queried_object()->rewrite['slug'].'/?type='.$choice ?>"><?php echo $choice ?></a></li>
+            <li><a <?php if(get_query_var('type') == $choice) echo "aria-current='page'"; ?> href="/<?php echo get_queried_object()->rewrite['slug'].'/?type='.$choice ?>"><?php echo $choice ?></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
