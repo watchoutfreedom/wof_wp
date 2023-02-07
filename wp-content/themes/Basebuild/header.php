@@ -37,8 +37,9 @@
         <ul>
         <li><a href="/blog">ALL</a></li>
         <?php 
+          $tag_page = get_queried_object();
           foreach(get_tags() as $tag):?>
-            <li><a href="<?php echo get_tag_link( $tag->term_id )?>"><?php echo $tag->name ?></a></li>
+            <li><a <?php if($tag_page->slug == $tag->name) echo "aria-current='page'"; ?>  href="<?php echo get_tag_link( $tag->term_id )?>"><?php echo $tag->name ?></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -53,10 +54,10 @@
         if(is_post_type_archive("activity")) $field = 'field_637541b007ca0';
           foreach(get_field_object($field)['choices'] as $choice):
             //only show if type has posts
-            if(get_posts(array('post_type' => get_queried_object()->name,'meta_query' => array(array('key' => 'type','value' => $choice,'compare' => 'LIKE'))))){
-              ?>
+           // if(get_posts(array('post_type' => get_queried_object()->name,'meta_query' => array(array('key' => 'type','value' => $choice,'compare' => 'LIKE'))))){ 
+          ?>
             <li><a <?php if(get_query_var('type') == $choice) echo "aria-current='page'"; ?> href="/<?php echo get_queried_object()->rewrite['slug'].'/?type='.$choice ?>"><?php echo $choice ?></a></li>
-      <?php } 
+      <?php //} 
         endforeach; ?>
         </ul>
       </div>
