@@ -6,37 +6,30 @@
 
 get_header(); ?>
 
-<?php   
-
-$post_types = ['activity','post','product','service'];
-
-
-
-if($feautured = get_field('feautured_post') ){
-    $feautured_type = $feautured->post_type;
-    $post_types = array_diff( $post_types, [$feautured_type] );
-    array_unshift($post_types,$feautured_type);
-}
-
-?>
 <div class="page main-container">
     <h1>Qué está pasando en Wof!</h1>
-    <?php foreach($post_types as $post_type){
-    $post = wp_get_recent_posts(array('numberposts' => 1,'post_type' => $post_type))[0];
-    ?>
+
+
+    <?php if($featured = get_field('feautured_post') ){
+    $args = array('p' => $featured->ID,'post_type' => 'any');
+      $wp_query = new WP_Query($args);
+      while ( have_posts() ) : the_post(); ?>
     <section>
-        <div class="<?php if($featured) echo 'featured'?>">
-            <a href="<?php echo get_permalink($post['ID']) ?>"><?php echo get_the_post_thumbnail($post['ID']); ?></a>
-            <div class="post_type"><label for=""><?php echo $post_type ?></label></div>
-            <h2><a href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title']; ?></a></h2>
-            <p><?php echo get_field('excerpt',$post['ID']) ?></p>
-            <div class="author"><span><?php the_author_meta( 'user_nicename' , $post['post_author'] ); ?></span></div>
+        <div class="featured">
+            <a href="<?php echo get_permalink() ?>"><?php echo get_the_post_thumbnail(); ?></a>
+            <div class="post_type"><label for=""><?php echo get_post_type() ?></label></div>
+            <h2><a href="<?php echo get_permalink() ?>"><?php echo the_title() ?></a></h2>
+            <p><?php echo get_field('excerpt') ?></p>
+            <div class="author"><span><?php the_author(); ?></span></div>
             <hr>
         </div>
     </section>
-    <?php } ?>
+    <?php endwhile; } ?>
     <section>
-        <a href="">SUSCRIBIRME</a>
+    <?php echo do_shortcode('[ajax_load_more id="6962705037" loading_style="infinite classic" post_type="post, activity, service, product" posts_per_page="5" post_format="standard"]') ?>
+    </section>
+    <section>
+        <a class="button" href="signup">SUSCRIBIRME</a>
     </section>
 
 </div>
