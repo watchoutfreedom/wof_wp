@@ -18,12 +18,12 @@ get_header(); ?>
                       else{?>
                         <h1><?php the_title(); ?></h1>
                     <?php }
-                ?>
-            <div class="gallery">
-                <?php 
-                    $images = get_field('images');
-                    $size = 'full'; // (thumbnail, medium, large, full or custom size)
-                    if( $images ): ?>
+                
+                $images = get_field('images');
+                $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                if( $images ): ?>
+
+                    <div class="gallery">
                         <ul>
                             <?php 
                             if(has_post_thumbnail())
@@ -35,8 +35,10 @@ get_header(); ?>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
-                <?php endif; ?>
-            </div>
+                    </div>
+                <?php 
+                elseif(has_post_thumbnail()): echo the_post_thumbnail();
+                endif; ?>
             <?php if(get_post_type() != "product"){ ?>
                 <h1><?php the_title(); ?></h1>
             <?php } ?>
