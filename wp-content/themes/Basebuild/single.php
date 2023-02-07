@@ -44,7 +44,7 @@ get_header(); ?>
 
                 <?php if(get_post_type() == "activity"){ ?>
 
-                    <span class="activity_type"><?php echo get_field('activity_type') ?></span>
+                    <span class="activity_type"><?php echo get_field('type') ?></span>
                     <?php if(get_field('users')){ 
                             echo " | ";
                     ?>
@@ -127,7 +127,7 @@ get_header(); ?>
             <?php } ?>
 
     </section>
-    <?php if(get_post_type() == "activity"): ?>
+    <?php if(in_array(get_post_type(),array("activity","product","post"))): ?>
         <?php 
             $linked_posts = get_field('linked_services');
             foreach (get_field('linked_products') as $linked_product)
@@ -138,7 +138,7 @@ get_header(); ?>
 
             <div class="linked-posts">
                 <hr>
-                <h2>Actualizaciones de proyecto</h2>
+                <h2>Relacionados</h2>
 
             <?php 
                 foreach($linked_posts as $linked_post):?>

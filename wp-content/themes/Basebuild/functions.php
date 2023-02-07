@@ -250,7 +250,7 @@ function filter_archive_posts( $query ) {
 
 		if (  $query->is_post_type_archive() ) {
 
-      //$query->set( 'meta_key', 'activity_type' );
+      //$query->set( 'meta_key', 'type' );
       $query->set( 'meta_value', get_query_var('type') );
 		}
   }
