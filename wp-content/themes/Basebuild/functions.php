@@ -257,5 +257,16 @@ function filter_archive_posts( $query ) {
 add_action( 'pre_get_posts', 'filter_archive_posts' );
 
 
+function change_role_name() {
+  global $wp_roles;
+
+  if ( ! isset( $wp_roles ) )
+      $wp_roles = new WP_Roles();
+
+  $wp_roles->roles['contributor']['name'] = 'Conversador';
+  $wp_roles->role_names['contributor'] = 'Conversador';           
+}
+add_action('init', 'change_role_name');
+
 
 ?>
