@@ -32,7 +32,7 @@
       </div>
       <div class="header-nav" id="header-menu">
       <?php foundationpress_main_nav(); ?>
-      <?php if ( is_home()):?>
+      <?php if ( is_home() || is_tag()):?>
         <div class="header-right">
         <ul>
         <li><a href="/blog">ALL</a></li>
@@ -43,7 +43,7 @@
         </ul>
       </div>
       <?php endif; ?>
-      <?php if(is_archive()): ?>
+      <?php if(is_archive() && !is_tag()): ?>
       <div class="header-right">
         <ul>
         <li><a href="/<?php echo get_queried_object()->rewrite['slug']?>">ALL</a></li>
