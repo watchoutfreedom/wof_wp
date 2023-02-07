@@ -4,6 +4,7 @@
 *
 */
 
+$page = "home";
 get_header(); ?>
 
 <div class="page main-container">
@@ -25,9 +26,12 @@ get_header(); ?>
         </div>
     </section>
     <?php endwhile; } ?>
-    <section>
-    <?php echo do_shortcode('[ajax_load_more id="6962705037" loading_style="infinite classic" post_type="post, activity, service, product" posts_per_page="5" post_format="standard"]') ?>
-    </section>
+    
+    <?php 
+    //lazy load
+    echo do_shortcode('[ajax_load_more id="6962705037" loading_style="infinite classic" post_type="post, 
+    activity, service, product" posts_per_page="5" post_format="standard"]') 
+    ?>
     <section>
         <a class="button" href="signup">SUSCRIBIRME</a>
     </section>
