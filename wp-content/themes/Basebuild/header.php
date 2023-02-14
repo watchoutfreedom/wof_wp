@@ -27,7 +27,7 @@
   <header class="header header-fixed u-unselectable">
     <div class="header-top"> 
       <div class="header-brand">
-      <div class="nav-item no-hover"><a href="<?php echo get_home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/dist/img/logo.svg" alt="logo"/></a></div>
+      <div class="nav-item no-hover"><a href="<?php echo get_home_url(); ?>"><?php 	the_custom_logo(); ?></a></div>
         <div class="nav-item nav-btn" id="header-btn"><span></span><span></span><span></span></div>
       </div>
       <div class="header-nav" id="header-menu">
