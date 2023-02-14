@@ -2,7 +2,7 @@
 /**
  * The single template file
  * *
- * @package Ollie Smith Basebuild
+ * @package biip Basebuild
  * @since wpbb 1.0.0
  */
 
