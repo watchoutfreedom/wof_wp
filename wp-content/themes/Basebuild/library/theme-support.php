@@ -41,7 +41,7 @@ if ( ! function_exists( 'foundationpress_theme_support' ) ) :
 		add_theme_support( 'wc-product-gallery-zoom' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
-
+		add_theme_support( 'custom-logo' );
 		add_theme_support( 'editor-styles' );
 
 		add_editor_style( get_stylesheet_directory_uri() . '/dist/assets/css/editor.css' );
