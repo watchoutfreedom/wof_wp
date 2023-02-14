@@ -15,7 +15,7 @@
             ?>
 		</label>
     </div>
-    <h2><a href="<?php echo get_permalink() ?>"><?php echo the_title() ?></a></h2>
+    <h2><a href="<?php echo get_permalink() ?>"><?php echo the_title() ?></a> <?php if($price = get_field('price',get_the_ID())) echo " | <span class='price'>".$price." €</span>" ?></h2>
     <p><?php echo get_field('excerpt') ?></p>
     <div class="author">
         <span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span>
