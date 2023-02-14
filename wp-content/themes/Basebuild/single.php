@@ -164,7 +164,9 @@ get_header(); ?>
         <a class="button" href="">UNIRME</a>
     <?php } ?>
     <?php if(get_post_type() == "post"){
-            if(wp_get_current_user()->ID == $post->post_author || current_user_can( 'edit_others_posts', $post->ID)){
+            if(wp_get_current_user()->ID == $post->post_author 
+            //|| current_user_can( 'edit_others_posts', $post->ID)
+            ){
                 echo "<a class='button' href='/create-post?action=edit&id=".$post->ID."'>EDITAR</a>";
             }
             else{
