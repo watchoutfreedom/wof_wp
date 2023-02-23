@@ -1,3 +1,4 @@
+<?php if($args['type'] == null || $args['type'] == get_field('type',get_the_ID())){ ?>
 <section>
     <a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a>
     <div class="post_type"><label for=""><?php echo get_post_type() ?></label></div>
@@ -22,3 +23,4 @@
     </div>
     <hr>
 </section>
+<?php } ?>
