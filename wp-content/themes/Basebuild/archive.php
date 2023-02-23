@@ -17,14 +17,15 @@
 
 get_header(); ?>
 
-<h1><?php echo get_query_var('type'); ?></h1>
 
-<h4><?php echo get_the_post_type_description(); ?></h4>
 
 <div class="page main-container">
+
+    <h4><?php echo get_the_post_type_description(); ?></h4>
+
 	<?php 
     //lazy load
-    echo do_shortcode('[ajax_load_more id="6962705037" loading_style="infinite classic" post_type="'.$post_type.'" posts_per_page="5" post_format="standard"]') 
+    echo do_shortcode('[ajax_load_more id="6962705037" tag="'.get_query_var('tag').'" custom_args="type:'.get_query_var('type').'" loading_style="infinite classic" post_type="'.$post_type.'" posts_per_page="5" post_format="standard"]') 
     ?>
 </div>
 
