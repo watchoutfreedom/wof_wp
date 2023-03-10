@@ -8,8 +8,6 @@ $page = "home";
 get_header(); ?>
 
 <div class="page main-container">
-    <h1>Qué está pasando en Wof!</h1>
-
 
     <?php if($featured = get_field('feautured_post') ){
     $args = array('p' => $featured->ID,'post_type' => 'any');

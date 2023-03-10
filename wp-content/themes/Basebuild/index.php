@@ -11,9 +11,9 @@
 
 get_header(); ?>
 
-<h4>Un blog abierto a las ideas de nuetros colaboradores.</h4>
 
 <div class="page main-container">
+	<h1>Un blog abierto a las ideas de nuestros colaboradores.</h1>
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section>
