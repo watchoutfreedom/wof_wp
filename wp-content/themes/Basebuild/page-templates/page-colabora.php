@@ -9,9 +9,9 @@ get_header(); ?>
 <div class="page main-container">
     <section>
         <p>
-            ¡ESTUPENDO! <br><br>
-            Wof! es una asociación sin animo de lucro dedicada a fomentar la cooperación social, el debate y la formación en materias afectadas por la desinformación o el desinterés del statu quo. Creamos proyectos abiertos a todos aquellos que deseen participar. 
-            Nuestro principio: Crear plataformas que permitan confrontar pacíficamente lo diferente, incluso lo opuesto, nos ayuda a mejorar como sociedad.
+            ¡Gracias por interesarte en colaborar! 
+            Wof! es una asociación sin animo de lucro dedicada a fomentar la cooperación social, el debate y la formación en materias afectadas por la desinformación o el desinterés del statu quo. 
+            Creamos plataformas que permitan confrontar pacíficamente las diferencias.
             Si te interesa ser parte o ayudar en algún proyecto puedes hacerlo de las siguientes maneras:
 
             La más sencilla: Síguiéndonos en redes sociales y compartiendo nuestras publicaciones. Twitter(LINK), Youtube(Link), Instagram(Link)
