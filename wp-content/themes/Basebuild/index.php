@@ -11,17 +11,17 @@
 
 get_header(); ?>
 
-<h4>Un blog abierto a las ideas de nuetros colaboradores.</h4>
 
 <div class="page main-container">
+	<h1>Un blog abierto a las ideas de nuestros colaboradores.</h1>
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section>
 				<div class="">
 					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
-                    <div class="author"><span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span></div>
-					<a href="<?php the_permalink() ?>"><h1><?php the_title(); ?></h1></a>
+					<a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
 					<p><?php echo get_field('excerpt',get_the_ID()) ?></p>
+					<div class="author"><span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span></div>
 					<hr>
 				</div>
     		</section>

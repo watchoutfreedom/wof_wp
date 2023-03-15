@@ -8,8 +8,6 @@ $page = "home";
 get_header(); ?>
 
 <div class="page main-container">
-    <h1>Qué está pasando en Wof!</h1>
-
 
     <?php if($featured = get_field('feautured_post') ){
     $args = array('p' => $featured->ID,'post_type' => 'any');
@@ -33,7 +31,7 @@ get_header(); ?>
     activity, service, product" posts_per_page="5" post_format="standard"]') 
     ?>
     <section>
-        <a class="button" href="signup">SUSCRIBIRME</a>
+        <a class="button bottom-action" href="signup">SUSCRIBIRME</a>
     </section>
 
 </div>
