@@ -181,6 +181,31 @@ get_header(); ?>
         <a class="button" href="">SOLICITAR</a>
     <?php } ?>
 
+    <section>
+
+    <h2>Respuestas</h2>
+
+
+    <?php 
+    
+    $tasks = get_posts(array(
+        'post_type' => 'post',
+        'meta_query' => array(
+            array(
+                'key' => 'answer_to', // name of custom field
+                'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+                'compare' => 'LIKE'
+            )
+        )
+    ));    
+    
+    print_r($tasks);
+
+    ?>
+
+        
+    </section>
+
 </div>
 
 <?php wp_footer(); ?>
