@@ -268,5 +268,30 @@ function change_role_name() {
 }
 add_action('init', 'change_role_name');
 
+// fix for navbar not showing up when logged in
+add_action('wp_head', 'mbe_wp_head');
+function mbe_wp_head(){
+    echo '<style>'
+    .PHP_EOL
+    .'body{ padding-top: 70px !important; }'
+    .PHP_EOL
+    .'body.body-logged-in .navbar-fixed-top{ top: 46px !important; }'
+    .PHP_EOL
+    .'body.logged-in .navbar-fixed-top{ top: 46px !important; }'
+    .PHP_EOL
+    .'@media only screen and (min-width: 783px) {'
+    .PHP_EOL
+    .'body{ padding-top: 70px !important; }'
+    .PHP_EOL
+    .'body.body-logged-in header{ top: 28px !important; }'
+    .PHP_EOL
+    .'body.logged-in header{ top: 28px !important; }'
+    .PHP_EOL
+    .'}</style>'
+    .PHP_EOL;
+}
+
+
+
 
 ?>
