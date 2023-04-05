@@ -125,10 +125,39 @@ get_header(); ?>
                 <ul>
                 <?php foreach(get_field('bibliography') as $book) echo "<li>".$book['book']."</li>"; ?>
                 </ul>
+                <br>
             </div>
             <?php } ?>
 
+
+
+            <div>
+            <?php if(get_post_type() == "activity"){ ?>
+                <a class="button" href="">UNIRME</a>
+            <?php } ?>
+            <?php if(get_post_type() == "post"){
+                    if(wp_get_current_user()->ID == $post->post_author 
+                    //|| current_user_can( 'edit_others_posts', $post->ID)
+                    ){
+                        echo "<a class='button' href='/create-post?action=edit&id=".$post->ID."'>EDITAR</a>";
+                    }
+                    else{
+                        echo "<a class='button' href='/create-post?action=create&id=".$post->ID."'>RESPONDER</a>";
+                    }
+            ?>
+            <?php } ?>
+            <?php if(get_post_type() == "product"){ ?>
+                <a class="button" href="">COMPRAR</a>
+            <?php } ?>
+            <?php if(get_post_type() == "service"){ ?>
+                <a class="button" href="">SOLICITAR</a>
+            <?php } ?>
+            </div>
+
+
     </section>
+    <?php endwhile; ?>
+
     <?php if(in_array(get_post_type(),array("activity","product","post"))): ?>
         <?php 
             $linked_posts = get_field('linked_services');
@@ -137,51 +166,30 @@ get_header(); ?>
             $linked_posts[] = get_field('linked_posts');
 
             if($linked_posts):?>
+            <section>
+                <div class="linked-posts">
+                    <hr>
+                    <h2>Relacionados</h2>
 
-            <div class="linked-posts">
-                <hr>
-                <h2>Relacionados</h2>
+                <?php
 
-            <?php
+                    
+                    foreach($linked_posts as $linked_post):?>
+                    <?php if($linked_post): ?>
+                        <div class="linked">
+                            <a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo get_the_post_thumbnail($linked_post->ID); ?></a>
+                            <div class="post_type"><label for=""><?php echo $linked_post->post_type ?></label></div>
+                            <h3><a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo $linked_post->post_title; ?></a></h3>
+                            <div class="excerpt"><?php echo get_field('excerpt',$linked_post->ID) ?></div>
+                        </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
 
-                
-                foreach($linked_posts as $linked_post):?>
-                <?php if($linked_post): ?>
-                <section>
-                    <div class="linked">
-                        <a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo get_the_post_thumbnail($linked_post->ID); ?></a>
-                        <div class="post_type"><label for=""><?php echo $linked_post->post_type ?></label></div>
-                        <h3><a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo $linked_post->post_title; ?></a></h3>
-                        <div class="excerpt"><?php echo get_field('excerpt',$linked_post->ID) ?></div>
-                    </div>
-                </section>
-                <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
+                </div>
+            </section>
+
         <?php endif; ?>
     <?php endif; ?>
-
-    <?php endwhile; ?>
-    <?php if(get_post_type() == "activity"){ ?>
-        <a class="button" href="">UNIRME</a>
-    <?php } ?>
-    <?php if(get_post_type() == "post"){
-            if(wp_get_current_user()->ID == $post->post_author 
-            //|| current_user_can( 'edit_others_posts', $post->ID)
-            ){
-                echo "<a class='button' href='/create-post?action=edit&id=".$post->ID."'>EDITAR</a>";
-            }
-            else{
-                echo "<a class='button' href='/create-post?action=create&id=".$post->ID."'>RESPONDER</a>";
-            }
-    ?>
-    <?php } ?>
-    <?php if(get_post_type() == "product"){ ?>
-        <a class="button" href="">COMPRAR</a>
-    <?php } ?>
-    <?php if(get_post_type() == "service"){ ?>
-        <a class="button" href="">SOLICITAR</a>
-    <?php } ?>
 
 
     <section>
