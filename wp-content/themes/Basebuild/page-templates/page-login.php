@@ -41,6 +41,9 @@ if ( ! is_user_logged_in() ) {
     
     echo $form;
     echo "<a href='/login?action=lostpassword'>Recuperar contraseña</a>";
+    echo "<div><a href='/signup'>No tienes cuenta? Únete!</a></div>";
+
+    
 }
 else
     wp_redirect(home_url());
