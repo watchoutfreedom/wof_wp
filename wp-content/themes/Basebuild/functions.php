@@ -207,6 +207,12 @@ function register_user($post_id){
 
     wp_new_user_notification($user_id);
 
+
+    //auto login user
+    wp_set_current_user( $user_id, $user_email );
+    wp_set_auth_cookie( $user_id );
+    do_action( 'wp_login', $user_email, get_user_by('id',$user_id) );
+
   }
 
   return $post_id;
