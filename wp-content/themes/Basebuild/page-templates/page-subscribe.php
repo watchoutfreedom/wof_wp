@@ -26,7 +26,15 @@ else{?>
 
 <section><p>¡GRACIAS! 
 
-Además, puedes asociarte a Wof! y  ayúdanos a difundir información de calidad en temas clave de nuetro tiempo, además de impulsar iniciativas de cooperación social entre diferentes ideologías.  Entérate antes de nuestras oprortunidades  y ventajas  para ti.</p></section>    
+Además, puedes asociarte a Wof! y  ayúdanos a difundir información de calidad en temas clave de nuetro tiempo, además de impulsar iniciativas de cooperación social entre diferentes ideologías.  Entérate antes de nuestras oprortunidades  y ventajas  para ti.</p>
+
+<a class="button" href="/colabora">COLABORA</a>
+
+<a class="button grey" href="/">VOLVER</a>
+
+
+
+</section>    
 
 <?php }
 
