@@ -4,6 +4,7 @@
 */
 ?>
 
+
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 
@@ -16,14 +17,22 @@
 </head>
 
 <?php 
+
 if ( ! is_user_logged_in() ) {
 
     if( isset($_GET['action']) && $_GET['action'] == 'lostpassword'){
         
     }
 
+    if (get_transient('originalRegisterRefererURL') ){
+    $redirect = get_transient('originalRegisterRefererURL');
+    }
+    else
+    $redirect = home_url();
+
+
     $args = array(
-        'redirect' => home_url(), // redirect to admin dashboard.
+        'redirect' => $redirect, // redirect to admin dashboard.
         'form_id' => 'custom_loginform',
         'label_username' => false,
         'label_password' => false,
