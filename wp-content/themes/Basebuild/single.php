@@ -142,7 +142,9 @@ get_header(); ?>
                 <hr>
                 <h2>Relacionados</h2>
 
-            <?php 
+            <?php
+
+                
                 foreach($linked_posts as $linked_post):?>
                 <?php if($linked_post): ?>
                 <section>
@@ -181,7 +183,11 @@ get_header(); ?>
         <a class="button" href="">SOLICITAR</a>
     <?php } ?>
 
+
     <section>
+
+    <?php echo do_shortcode('[Sassy_Social_Share]') ?>
+
 
     <h2>Respuestas</h2>
 
@@ -199,7 +205,6 @@ get_header(); ?>
         )
     ));    
     
-    print_r($tasks);
 
     ?>
 
