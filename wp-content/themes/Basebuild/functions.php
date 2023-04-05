@@ -208,6 +208,8 @@ function register_user($post_id){
     wp_new_user_notification($user_id);
 
   }
+
+  return $post_id;
 }
 add_filter('acf/pre_save_post','register_user');
 
@@ -290,6 +292,7 @@ function mbe_wp_head(){
     .'}</style>'
     .PHP_EOL;
 }
+
 
 
 
