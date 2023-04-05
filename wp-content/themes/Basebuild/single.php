@@ -156,14 +156,16 @@ get_header(); ?>
 
 
     </section>
+    
     <?php endwhile; ?>
+
+    <section class="social">
+    <?php echo do_shortcode('[Sassy_Social_Share]') ?>
+
+    </section>
 
     <?php if(in_array(get_post_type(),array("activity","product","post"))): ?>
         <?php 
-            $linked_posts = get_field('linked_services');
-            foreach (get_field('linked_products') as $linked_product)
-                $linked_posts[] = $linked_product;
-            $linked_posts[] = get_field('linked_posts');
 
             if($linked_posts):?>
             <section>
@@ -192,32 +194,30 @@ get_header(); ?>
     <?php endif; ?>
 
 
-    <section>
-
-    <?php echo do_shortcode('[Sassy_Social_Share]') ?>
-
-
-    <h2>Respuestas</h2>
 
 
     <?php 
     
-    $tasks = get_posts(array(
-        'post_type' => 'post',
-        'meta_query' => array(
-            array(
-                'key' => 'answer_to', // name of custom field
-                'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
-                'compare' => 'LIKE'
-            )
-        )
-    ));    
+    $posts = get_posts(array(
+        'numberposts'   => -1,
+        'post_type'     => 'post',
+        'meta_key'      => 'answer_to',
+        'meta_value'    => get_the_ID()
+    ));
     
+    if(!empty($posts)):?>
 
-    ?>
+    <section class="answers">
+        <h2>Respuestas</h2>
 
-        
+        <ul>
+        <?php
+            foreach($posts as $post)
+                echo "<li><a href='".get_permalink($post->ID)."'>".$post->post_title."</a></li>";?>
+        </ul>
     </section>
+
+    <?php endif; ?>
 
 </div>
 
