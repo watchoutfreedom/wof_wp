@@ -16,7 +16,7 @@ get_header();?>
     <?php 
     
     if (get_transient('originalRegisterRefererURL') ){
-        $redirect = get_transient('originalRegisterRefererURL');
+        $redirect = home_url()."/create-post/?action=create&id=".url_to_postid(get_transient('originalRegisterRefererURL'));
         delete_transient('originalRegisterRefererURL');
     }
     else
