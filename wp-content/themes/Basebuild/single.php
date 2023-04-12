@@ -45,8 +45,10 @@ get_header(); ?>
             <h5>
 
                 <?php if(get_post_type() == "activity"){ ?>
+                    <?php if(get_field('type')){ ?>
 
-                    <span class="activity_type"><?php echo get_field('type') ?></span>
+                    <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span>
+                    <?php }?>
                     <?php if(get_field('users')){ 
                             echo " | ";
                     ?>
@@ -76,7 +78,7 @@ get_header(); ?>
                 <?php if(get_post_type() == 'service'){ ?>
 
                     <?php if(get_field('type')){ ?>
-                    <span class="type"><?php echo get_field('type')?></span>
+                    <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span>
                     <?php } ?>
                     <?php if(get_field('price')){ 
                             echo " | ";
@@ -108,6 +110,9 @@ get_header(); ?>
 
 
                 <?php if(get_post_type() == 'product'){ ?>
+                    <?php if(get_field('type')){ ?>
+                    <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span> | 
+                    <?php } ?>
 
                     <?php if(get_field('price')){ ?>
                         <span class="price"><?php echo get_field('price')." €" ?></span>
