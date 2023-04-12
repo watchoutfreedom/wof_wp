@@ -27,7 +27,7 @@ get_header(); ?>
          <p>
         Como interlocutor o suscriptor. Nuestro blog permite responder a un artículo con otro artículo en lugar de escribir comentarios. El objetivo es mejorar la calidad del debate; no hace falta que sea una respuesta extensa pero sí reflexiva. Cualquier lector puede proponerla (moderada por los colaboradores) convirtiéndose en interlocutor.
         Como suscriptor recibirás las noticias sobre nuestra actividad y podrás enterarte antes que nadie de las iniciativas.
-        <a href="/shop" class="button">SUSCRIBIRME</a>
+        <a href="/subscribe" class="button">SUSCRIBIRME</a>
         </p>
     </section>
     <section>
