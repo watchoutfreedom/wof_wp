@@ -13,7 +13,7 @@ get_header(); ?>
 
 
 <div class="page main-container">
-	<h1>Un blog abierto a las ideas de nuestros colaboradores.</h1>
+	<h1>Un blog abierto a tus ideas.</h1>
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<section>
