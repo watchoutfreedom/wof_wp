@@ -2,3 +2,7 @@
     visibility: hidden;
     position: absolute !important;
 }
+
+.post-type-archive-product .post_type{
+    display:none;
+}

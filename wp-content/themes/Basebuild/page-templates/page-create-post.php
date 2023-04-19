@@ -5,16 +5,22 @@
 */
 
 
-//add redirect if user can't edit thist post
 $post = get_post($_GET['id']);
 
-if(!is_user_logged_in())
+//add redirect if user can't edit thist post
+if(!is_user_logged_in()){
+    set_transient( 'originalRegisterRefererURL', $_SERVER['HTTP_REFERER'], 60 * 60 * 24 );
     wp_redirect( wp_login_url() );
+}
 
 if(!(wp_get_current_user()->ID == $post->post_author) 
     && !current_user_can( 'edit_others_posts') 
     && $_GET['action'] == 'edit')
     wp_redirect(home_url());
+
+if(wp_get_current_user()->ID == $post->post_author && $_GET['action'] == 'create')
+    wp_redirect(get_permalink($_GET['id']));
+
 
 acf_form_head();
 

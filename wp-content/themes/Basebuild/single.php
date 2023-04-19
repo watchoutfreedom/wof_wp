@@ -45,8 +45,10 @@ get_header(); ?>
             <h5>
 
                 <?php if(get_post_type() == "activity"){ ?>
+                    <?php if(get_field('type')){ ?>
 
-                    <span class="activity_type"><?php echo get_field('type') ?></span>
+                    <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span>
+                    <?php }?>
                     <?php if(get_field('users')){ 
                             echo " | ";
                     ?>
@@ -76,7 +78,7 @@ get_header(); ?>
                 <?php if(get_post_type() == 'service'){ ?>
 
                     <?php if(get_field('type')){ ?>
-                    <span class="type"><?php echo get_field('type')?></span>
+                    <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span>
                     <?php } ?>
                     <?php if(get_field('price')){ 
                             echo " | ";
@@ -108,6 +110,9 @@ get_header(); ?>
 
 
                 <?php if(get_post_type() == 'product'){ ?>
+                    <?php if(get_field('type')){ ?>
+                    <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span> | 
+                    <?php } ?>
 
                     <?php if(get_field('price')){ ?>
                         <span class="price"><?php echo get_field('price')." €" ?></span>
@@ -125,86 +130,99 @@ get_header(); ?>
                 <ul>
                 <?php foreach(get_field('bibliography') as $book) echo "<li>".$book['book']."</li>"; ?>
                 </ul>
+                <br>
             </div>
             <?php } ?>
 
+
+
+            <div>
+            <?php if(get_post_type() == "activity"){ ?>
+                <a class="button" href="">UNIRME</a>
+            <?php } ?>
+            <?php if(get_post_type() == "post"){
+                    if(wp_get_current_user()->ID == $post->post_author 
+                    //|| current_user_can( 'edit_others_posts', $post->ID)
+                    ){
+                        echo "<a class='button' href='/create-post?action=edit&id=".$post->ID."'>EDITAR</a>";
+                    }
+                    else{
+                        echo "<a class='button' href='/create-post?action=create&id=".$post->ID."'>RESPONDER</a>";
+                    }
+            ?>
+            <?php } ?>
+            <?php if(get_post_type() == "product"){ ?>
+                <a class="button" href="">COMPRAR</a>
+            <?php } ?>
+            <?php if(get_post_type() == "service"){ ?>
+                <a class="button" href="">SOLICITAR</a>
+            <?php } ?>
+            </div>
+
+
     </section>
+    
+    <?php endwhile; ?>
+
+    <section class="social">
+    <?php echo do_shortcode('[Sassy_Social_Share]') ?>
+
+    </section>
+
     <?php if(in_array(get_post_type(),array("activity","product","post"))): ?>
         <?php 
-            $linked_posts = get_field('linked_services');
-            foreach (get_field('linked_products') as $linked_product)
-                $linked_posts[] = $linked_product;
-            $linked_posts[] = get_field('linked_posts');
 
             if($linked_posts):?>
+            <section>
+                <div class="linked-posts">
+                    <hr>
+                    <h2>Relacionados</h2>
 
-            <div class="linked-posts">
-                <hr>
-                <h2>Relacionados</h2>
+                <?php
 
-            <?php 
-                foreach($linked_posts as $linked_post):?>
-                <?php if($linked_post): ?>
-                <section>
-                    <div class="linked">
-                        <a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo get_the_post_thumbnail($linked_post->ID); ?></a>
-                        <div class="post_type"><label for=""><?php echo $linked_post->post_type ?></label></div>
-                        <h3><a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo $linked_post->post_title; ?></a></h3>
-                        <div class="excerpt"><?php echo get_field('excerpt',$linked_post->ID) ?></div>
-                    </div>
-                </section>
-                <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
+                    
+                    foreach($linked_posts as $linked_post):?>
+                    <?php if($linked_post): ?>
+                        <div class="linked">
+                            <a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo get_the_post_thumbnail($linked_post->ID); ?></a>
+                            <div class="post_type"><label for=""><?php echo $linked_post->post_type ?></label></div>
+                            <h3><a href="<?php echo get_permalink($linked_post->ID) ?>"><?php echo $linked_post->post_title; ?></a></h3>
+                            <div class="excerpt"><?php echo get_field('excerpt',$linked_post->ID) ?></div>
+                        </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+
+                </div>
+            </section>
+
         <?php endif; ?>
     <?php endif; ?>
 
-    <?php endwhile; ?>
-    <?php if(get_post_type() == "activity"){ ?>
-        <a class="button" href="">UNIRME</a>
-    <?php } ?>
-    <?php if(get_post_type() == "post"){
-            if(wp_get_current_user()->ID == $post->post_author 
-            //|| current_user_can( 'edit_others_posts', $post->ID)
-            ){
-                echo "<a class='button' href='/create-post?action=edit&id=".$post->ID."'>EDITAR</a>";
-            }
-            else{
-                echo "<a class='button' href='/create-post?action=create&id=".$post->ID."'>RESPONDER</a>";
-            }
-    ?>
-    <?php } ?>
-    <?php if(get_post_type() == "product"){ ?>
-        <a class="button" href="">COMPRAR</a>
-    <?php } ?>
-    <?php if(get_post_type() == "service"){ ?>
-        <a class="button" href="">SOLICITAR</a>
-    <?php } ?>
 
-    <section>
-
-    <h2>Respuestas</h2>
 
 
     <?php 
     
-    $tasks = get_posts(array(
-        'post_type' => 'post',
-        'meta_query' => array(
-            array(
-                'key' => 'answer_to', // name of custom field
-                'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
-                'compare' => 'LIKE'
-            )
-        )
-    ));    
+    $posts = get_posts(array(
+        'numberposts'   => -1,
+        'post_type'     => 'post',
+        'meta_key'      => 'answer_to',
+        'meta_value'    => get_the_ID()
+    ));
     
-    print_r($tasks);
+    if(!empty($posts)):?>
 
-    ?>
+    <section class="answers">
+        <h2>Respuestas</h2>
 
-        
+        <ul>
+        <?php
+            foreach($posts as $post)
+                echo "<li><a href='".get_permalink($post->ID)."'>".$post->post_title."</a></li>";?>
+        </ul>
     </section>
+
+    <?php endif; ?>
 
 </div>
 

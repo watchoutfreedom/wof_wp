@@ -39,6 +39,10 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// Enqueue the main Stylesheet.
 		wp_enqueue_style( 'main-stylesheet', 'https://gruncho.github.io/wof_wp/css/main.css', array(), '1.1', 'all' );
 
+		wp_enqueue_style( 'stylesheet', get_stylesheet_directory_uri().'/dist/css/styles.css', array(), '1.1', 'all' );
+
+
+
 		// Enque Font Awesome
 		wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', array(), '1.0.0', 'all' );
 

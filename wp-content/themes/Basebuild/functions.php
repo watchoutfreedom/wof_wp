@@ -207,7 +207,15 @@ function register_user($post_id){
 
     wp_new_user_notification($user_id);
 
+
+    //auto login user
+    wp_set_current_user( $user_id, $user_email );
+    wp_set_auth_cookie( $user_id );
+    do_action( 'wp_login', $user_email, get_user_by('id',$user_id) );
+
   }
+
+  return $post_id;
 }
 add_filter('acf/pre_save_post','register_user');
 
@@ -267,6 +275,32 @@ function change_role_name() {
   $wp_roles->role_names['contributor'] = 'Conversador';           
 }
 add_action('init', 'change_role_name');
+
+// fix for navbar not showing up when logged in
+add_action('wp_head', 'mbe_wp_head');
+function mbe_wp_head(){
+    echo '<style>'
+    .PHP_EOL
+    .'body{ padding-top: 70px !important; }'
+    .PHP_EOL
+    .'body.body-logged-in .navbar-fixed-top{ top: 46px !important; }'
+    .PHP_EOL
+    .'body.logged-in .navbar-fixed-top{ top: 46px !important; }'
+    .PHP_EOL
+    .'@media only screen and (min-width: 783px) {'
+    .PHP_EOL
+    .'body{ padding-top: 70px !important; }'
+    .PHP_EOL
+    .'body.body-logged-in header{ top: 28px !important; }'
+    .PHP_EOL
+    .'body.logged-in header{ top: 28px !important; }'
+    .PHP_EOL
+    .'}</style>'
+    .PHP_EOL;
+}
+
+
+
 
 
 ?>
