@@ -30,10 +30,10 @@ get_header(); ?>
     echo do_shortcode('[ajax_load_more id="6962705037" loading_style="infinite classic" post_type="post, 
     activity, service, product" posts_per_page="5" post_format="standard"]') 
     ?>
-    <section>
-        <a class="button bottom-action" href="subscribe">SUSCRIBIRME</a>
-    </section>
+
 
 </div>
+
+<a class="button buttom-fixed" href="signup">SUSCRIBIRME</a>
 
 <?php wp_footer(); ?>
