@@ -1,0 +1,31 @@
+$grid-min: 1800px;
+$grid-max: 1084px;
+$grid: $grid-min;
+$gutter: 24px;
+$grid-content: 840px;
+$two-columns: 47.5%;
+$three-columns: 31%; 
+
+.grid-content,
+.grid,
+.grid-max {
+  margin-left: $gutter;
+  margin-right: $gutter;
+}
+
+@media #{$breakpoints-large} {
+  .grid,
+  .grid-max {
+    margin: 0 auto;
+    width: 95%;
+    max-width: $grid;
+  }
+
+  .grid-max {
+    max-width: $grid-max;
+  }
+
+  .grid-content {
+    max-width: $grid-content;
+  }
+}

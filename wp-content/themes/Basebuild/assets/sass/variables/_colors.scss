@@ -1,0 +1,28 @@
+// basic
+
+:root {
+  --white: #fff;
+  --black: black;
+  --bck: var(--white);
+} 
+
+$color-white: var(--white);
+$color-black: var(--black);
+$color-bck: var(--bck);
+
+$color-gray-01: #414651;
+$color-gray-02: #7B7B7B;
+$color-gray-03: #9B9B9B;
+$color-gray-04: #f0f0f0;
+
+$color-first: #0F4BF1;
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: white;
+    --white: hsl(200deg, 20%, 10%);
+  }
+}
+*/
+

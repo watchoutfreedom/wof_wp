@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+
+// Obligatory 
+@import '../assets/sass/import/fonts';
+@import '../assets/sass/variables/colors';
+// Base
+@import '../assets/sass/base/reset';
+@import '../assets/sass/base/common';
+
+// Variables 
+@import '../assets/sass/variables/breakpoints';
+@import '../assets/sass/variables/grid';
+@import '../assets/sass/variables/animation';
+@import '../assets/sass/variables/aspect-ratio';
+
+
+// Layout
+@import '../assets/sass/layout/header';
+@import '../assets/sass/layout/footer';
+@import '../assets/sass/layout/gallery';
+
+
+// Views
+@import '../assets/sass/views/home';
+

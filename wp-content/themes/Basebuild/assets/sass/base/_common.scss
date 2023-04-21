@@ -1,0 +1,47 @@
+$color-selection: $color-black;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  
+  background-color: $color-bck;
+  color: $color-black;
+  font-family: $font-family-body;
+  font-size: 62.5%; // = 10px, 2.4rem 14px, 2.4rem = 24px..
+
+  // revise
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a {
+  color: inherit;
+}
+
+em {
+  font-style: italic;
+}
+
+::-moz-selection {
+  background: $color-selection;
+  color: $color-white;
+}
+
+::selection {
+  background: $color-selection;
+  color: $color-white;
+}

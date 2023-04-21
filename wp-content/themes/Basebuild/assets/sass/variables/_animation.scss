@@ -1,0 +1,42 @@
+.flash {
+  animation: .4s flash_up .2s ease-in-out both;
+}
+
+@keyframes flash_up {
+  0% { 
+    opacity: 0;
+    transform: translateY(12px);
+  } 
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flash_02 {
+  animation: .4s flash_02 1.5s ease-in-out both;
+}
+
+@keyframes flash_02 {
+  0% { 
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation_opacity {
+  animation: .45s animation_opacity 1s ease-in-out both;
+}
+
+@keyframes animation_opacity {
+  0% { 
+    transform: scale(0.99);
+    opacity: 0;
+  } 
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,188 @@
+body {
+  padding-top: 0 !important;
+}
+
+.main-container {
+
+  margin: auto;
+  max-width: 840px; // Variable breakpoints
+}
+
+.post_type {
+
+
+  label {
+    font-size: 1.2rem;
+    font-weight: 100;
+    background-color: gold;
+    padding: 0 1rem;
+      }
+}
+
+section {
+  padding: 0 1rem;
+}
+
+// General foramt
+
+section {
+  p, 
+  ul,
+  ol,
+  table {
+    margin: 1rem 0 .85rem 0;
+  }
+
+  p {
+    font-size: .95rem;
+    line-height: 1.2rem;
+    color: #333; // Variable
+  }
+}
+
+.button {
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 1rem 0;
+  display: block;
+
+
+}
+
+
+.buttom-fixed {
+
+  position: fixed;
+  bottom: 0.1rem;
+
+}
+
+
+.subtitle {
+
+  font-size: 1.1rem;
+    color: gold;
+    font-weight: bolder;
+    margin: 0;
+    padding: 0;
+    line-height: 0.95;
+    text-decoration: none;
+
+}
+
+.featured {
+
+  padding: 1rem;
+  background: whitesmoke; //variable
+
+}
+
+.feature:before {
+  content:'featured';
+}
+
+.author {
+
+  color: darkgrey; //variable
+  font-size: 0.7rem;
+
+}
+
+// Reset
+
+a {
+  text-decoration: none;
+ * {
+  text-decoration: none;
+ } 
+}
+
+hr {
+  margin: 2rem 0 0;
+  border-color: #ccc;
+  border-top: 0;
+}
+
+h1 {
+    margin: 1rem 0;
+    color: black; // Variables
+    font-weight: bolder; // Variables
+    font-size: 1.9rem;
+}
+
+h2 {
+  margin: 0.85rem 0;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.1rem;
+  line-height: normal;
+  background: rgb(0, 0, 0);
+  font-weight: 300;
+}
+
+
+h2::before {
+
+  content: "¨" ;
+
+}
+
+h2::after {
+
+  content: "¨" ;
+
+}
+
+.gallery {
+  padding: 2rem 0;
+  
+  ul {
+    li {
+      display: inline-flex;
+    }
+  }
+}
+
+
+h5 {
+
+  font-size: medium; //variables
+
+}
+
+.price {
+
+  background-color: chartreuse; //variables
+
+}
+
+.bottom-action {
+
+  position: fixed;
+  bottom: 0;
+  margin: 1rem; //variables
+
+}
+
+img {
+  margin: .05rem 0;
+  max-width: 100%;
+  height: auto;
+}
+
+// Test format template (comunidad)
+
+.page-template-page-templatespage-comunidad-php {
+  .page {
+    display: flex;
+    flex-flow: row wrap;
+
+    .section {
+      flex: 0 1 50%;
+    }
+  }
+}
