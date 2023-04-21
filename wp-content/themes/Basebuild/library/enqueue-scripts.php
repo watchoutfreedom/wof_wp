@@ -37,7 +37,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 		
 		// Enqueue the main Stylesheet.
-		wp_enqueue_style( 'main-stylesheet', 'https://gruncho.github.io/wof_wp/css/main.css', array(), '1.1', 'all' );
+		wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri().'/css/main.css', array(), '1.1', 'all' );
 
 		wp_enqueue_style( 'stylesheet', get_stylesheet_directory_uri().'/dist/css/styles.css', array(), '1.1', 'all' );
 
