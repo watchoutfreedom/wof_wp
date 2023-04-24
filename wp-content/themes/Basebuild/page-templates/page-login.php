@@ -66,20 +66,28 @@ if ( ! is_user_logged_in() ) {
         //add the placeholders
         $form = str_replace('name="log"', 'name="log" placeholder="Username"', $form);
         $form = str_replace('name="pwd"', 'name="pwd" placeholder="Password"', $form);
-        
+        echo '
+        <div class="login__container">
+        ';
         echo $form;
-        echo "<a href='/login?action=lostpassword'>Recuperar contraseña</a>";
-        echo "<div><a href='/signup'>No tienes cuenta? Únete!</a></div>";
+        echo "<div class='login__links'> <a class='button__links' href='/login?action=lostpassword'>Recuperar contraseña</a><br>";
+        echo "<a class='button__links' href='/signup'>No tienes cuenta? Únete!</a><br></div>";
+
     }
 
+    if( isset($_GET['login_error']) ){
+        echo display_error_message($_GET['login_error']);
+    }
+
+    echo '
+    </div>
+    ';
     
 }
 else
     wp_redirect(home_url());
 
-if( isset($_GET['login_error']) ){
-    echo display_error_message($_GET['login_error']);
-}
+
 
 function display_error_message( $err_code ){
     // Invalid username.

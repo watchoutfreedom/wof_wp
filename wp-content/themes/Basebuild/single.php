@@ -13,7 +13,7 @@ get_header(); ?>
         <div class="single-<?php echo get_post_type() ?>">
             <?php while ( have_posts() ) : the_post();?>
                 <?php if(get_post_type() != "product"){ ?>
-                    <h2><?php echo get_field('excerpt') ?></h2>
+                    <div class="excerp"><?php echo get_field('excerpt') ?></div>
                 <?php }
                       else{?>
                         <h1><?php the_title(); ?></h1>
@@ -23,19 +23,18 @@ get_header(); ?>
                 $size = 'full'; // (thumbnail, medium, large, full or custom size)
                 if( $images ): ?>
 
-                    <div class="gallery">
-                        <ul>
-                            <?php 
-                            if(has_post_thumbnail())
-                            echo "<li>".the_post_thumbnail()."</li>"
-                             ?>
-                            <?php foreach( $images as $image_id ): ?>
-                                <li>
-                                    <?php echo wp_get_attachment_image( $image_id, $size ); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
+                    <div class="slick-gallery">
+                        <?php 
+                        if(has_post_thumbnail())
+                            echo '<div>' . the_post_thumbnail() . '</div>';
+                        ?>
+                        <?php foreach($images as $image_id): ?>
+                        <div>
+                            <?php echo wp_get_attachment_image($image_id, $size); ?>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
+
                 <?php 
                 elseif(has_post_thumbnail()): echo the_post_thumbnail();
                 endif; ?>

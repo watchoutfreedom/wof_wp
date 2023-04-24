@@ -18,8 +18,8 @@ add_action( 'init', 'create_post_type' );
 function create_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Activities', 'Post type general name', 'textdomain' ),
-		'singular_name'         => _x( 'Activity', 'Post type singular name', 'textdomain' ),
+		'name'                  => _x( 'Actividades', 'Post type general name', 'textdomain' ),
+		'singular_name'         => _x( 'Actividad', 'Post type singular name', 'textdomain' ),
 		'menu_name'             => _x( 'Activities', 'Admin Menu text', 'textdomain' ),
 		'name_admin_bar'        => _x( 'Activity', 'Add New on Toolbar', 'textdomain' ),
 		'add_new'               => __( 'Add New', 'textdomain' ),
@@ -81,8 +81,8 @@ function create_post_type() {
 	);
 
 	$labels = array(
-		'name'                  => _x( 'Services', 'Post type general name', 'textdomain' ),
-		'singular_name'         => _x( 'Service', 'Post type singular name', 'textdomain' ),
+		'name'                  => _x( 'Servicios', 'Post type general name', 'textdomain' ),
+		'singular_name'         => _x( 'Servicio', 'Post type singular name', 'textdomain' ),
 		'menu_name'             => _x( 'Services', 'Admin Menu text', 'textdomain' ),
 		'name_admin_bar'        => _x( 'Service', 'Add New on Toolbar', 'textdomain' ),
 		'add_new'               => __( 'Add New', 'textdomain' ),
@@ -112,8 +112,8 @@ function create_post_type() {
 	);
 
 	$labels = array(
-		'name'                  => _x( 'Products', 'Post type general name', 'textdomain' ),
-		'singular_name'         => _x( 'Product', 'Post type singular name', 'textdomain' ),
+		'name'                  => _x( 'Productos', 'Post type general name', 'textdomain' ),
+		'singular_name'         => _x( 'Producto', 'Post type singular name', 'textdomain' ),
 		'menu_name'             => _x( 'Products', 'Admin Menu text', 'textdomain' ),
 		'name_admin_bar'        => _x( 'Product', 'Add New on Toolbar', 'textdomain' ),
 		'add_new'               => __( 'Add New', 'textdomain' ),

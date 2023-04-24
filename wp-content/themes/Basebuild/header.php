@@ -16,8 +16,15 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel='dns-prefetch' href='//polyfill.io' />
-    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  <link href='https://fonts.googleapis.com/css?family=Coco+Goose' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
+  <script src="scripts.js?ver=1.0" defer></script>
+
+  <link rel='dns-prefetch' href='//polyfill.io' />
+  <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 	<?php wp_head(); ?>
 </head>
 
@@ -27,7 +34,7 @@
   <header class="header header-fixed u-unselectable">
     <div class="header-top"> 
       <div class="header-brand">
-      <div class="nav-item no-hover"><a href="<?php echo get_home_url(); ?>"><?php 	the_custom_logo(); ?></a></div>
+      <div class="nav-item no-hover"><a href="<?php echo get_home_url(); ?>">Wof!<?php 	the_custom_logo(); ?></a></div>
         <div class="nav-item nav-btn" id="header-btn"><span></span><span></span><span></span></div>
       </div>
       <div class="header-nav" id="header-menu">
