@@ -194,6 +194,57 @@ section p {
   color: #333;
 }
 
+.post-item {
+  position: relative;
+}
+
+.button__links {
+  display: block;
+  font-size: small;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+.button {
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 1rem 0;
+  display: block;
+}
+
+.bottom-action {
+  position: fixed;
+  bottom: 0;
+  margin: 1rem;
+  width: 100%;
+}
+
+.page-template-page-templatespage-comunidad-php .page {
+  display: flex;
+  flex-flow: row wrap;
+}
+.page-template-page-templatespage-comunidad-php .page .section {
+  flex: 0 1 50%;
+}
+
+.login__container {
+  padding: 10px;
+}
+
+.brand-text {
+  font-family: "Coco Goose", sans-serif;
+}
+
+.main-container {
+  margin: auto;
+  max-width: 840px;
+}
+
 .grid-content,
 .grid,
 .footer__wrap,
@@ -270,6 +321,20 @@ section p {
   transition: transform 0.4s, opacity 0.4s;
 }
 
+:root {
+  --white: #fff;
+  --black: black;
+  --bck: var(--white);
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: white;
+    --white: hsl(200deg, 20%, 10%);
+  }
+}
+*/
 .header {
   left: 0;
   position: fixed;
