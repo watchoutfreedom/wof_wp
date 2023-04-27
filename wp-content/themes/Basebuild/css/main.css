@@ -253,12 +253,6 @@ section p {
   margin-right: 24px;
 }
 
-#posts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-}
-
 @media only screen and (min-width: 1024px) {
   .grid, .footer__wrap,
   .grid-max {
@@ -271,6 +265,11 @@ section p {
   }
   .grid-content {
     max-width: 840px;
+  }
+  #posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
   }
 }
 .flash {

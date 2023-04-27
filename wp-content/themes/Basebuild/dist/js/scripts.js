@@ -26,10 +26,10 @@ function setPaddingTop() {
       postItems[2].style.gridColumn = "span 1";
 
       // Second row
-      postItems[3].style.gridColumn = "span 3";
+      postItems[3].style.gridColumn = "span 2";
 
       // Third row
-      postItems[4].style.gridColumn = "span 1";
+      postItems[4].style.gridColumn = "span 3";
       postItems[5].style.gridColumn = "span 1";
       postItems[6].style.gridColumn = "span 2";
 

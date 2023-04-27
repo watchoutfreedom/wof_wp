@@ -13,11 +13,8 @@ $three-columns: 31%;
   margin-right: $gutter;
 }
 
-#posts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-}
+
+
 
 
 @media #{$breakpoints-large} {
@@ -34,6 +31,12 @@ $three-columns: 31%;
 
   .grid-content {
     max-width: $grid-content;
+  }
+
+  #posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
   }
 }
 
