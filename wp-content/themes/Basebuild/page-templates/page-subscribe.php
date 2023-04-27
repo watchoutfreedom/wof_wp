@@ -12,7 +12,7 @@ get_header();
 
 <div class="page main-container">
 
-<?php if($_POST['success'])
+<?php if(!$_GET['success'])
     echo do_shortcode("[noptin-form id=513]");
     else{
     ?>
