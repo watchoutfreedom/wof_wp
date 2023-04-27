@@ -154,7 +154,7 @@ get_header(); ?>
                 <a class="button" href="">COMPRAR</a>
             <?php } ?>
             <?php if(get_post_type() == "service"){ ?>
-                <a class="button" href="">SOLICITAR</a>
+                <a class="button" href="mailto:test@example.com?subject=<?php the_title(); ?>">SOLICITAR</a>
             <?php } ?>
             </div>
 
