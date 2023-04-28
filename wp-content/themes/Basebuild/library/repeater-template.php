@@ -1,14 +1,6 @@
 <?php if($args['type'] == null || $args['type'] == get_field('type',get_the_ID())){ ?>
 <section>
     <a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a>
-    <div class="post_type">
-        <label for="">
-        <?php 
-        if ($postType = get_post_type_object(get_post_type()))
-            echo esc_html($postType->labels->singular_name);
-        ?>
-        </label>
-    </div>
     <div class="subtitle">
         <label for="">
             <?php 

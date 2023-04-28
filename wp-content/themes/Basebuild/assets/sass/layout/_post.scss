@@ -124,8 +124,10 @@
   
   .author {
   
-    color: darkgrey; //variable
-    font-size: 0.7rem;
+    color: $color-first; //variable
+    font-size: $font-size-01;
+
+
   
   }
   
@@ -137,6 +139,8 @@
   .price {
   
     background-color: chartreuse; //variables
+    font-size: $font-size-03;
+
   
   }
   

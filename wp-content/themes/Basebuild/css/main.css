@@ -122,7 +122,7 @@ em {
 }
 
 h2 {
-  margin: 0.85rem 0;
+  margin: 0.5rem 0;
   padding: 0.2rem 0rem;
   font-size: 1.61rem;
   font-family: "Be Vietnam Pro", Arial, sans-serif;
@@ -132,6 +132,7 @@ h2 {
 }
 
 h5 {
+  line-height: 2rem;
   font-size: medium;
 }
 
@@ -180,6 +181,7 @@ form {
 
 section {
   margin: 1rem 0;
+  padding: 0 0.5rem;
 }
 
 section p,
@@ -211,6 +213,7 @@ section p {
   color: white;
   padding: 16px 32px;
   font-size: 1rem;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
   margin: 1rem 0;
@@ -218,10 +221,8 @@ section p {
 }
 
 .bottom-action {
-  position: fixed;
-  bottom: 0;
-  margin: 1rem;
-  width: 100%;
+  bottom: 20px; /* Add some space from the bottom */
+  right: 20px; /* Add some space from the right */
 }
 
 .page-template-page-templatespage-comunidad-php .page {
@@ -355,7 +356,7 @@ section p {
 .header-nav {
   display: flex;
   flex-direction: column;
-  font-family: "Cocogoose", sans-serif;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   height: auto;
   justify-content: space-between;
   overflow: auto;
@@ -689,12 +690,13 @@ section p {
 }
 
 .author {
-  color: darkgrey;
-  font-size: 0.7rem;
+  color: #0F4BF1;
+  font-size: 12px;
 }
 
 .price {
   background-color: chartreuse;
+  font-size: 18px;
 }
 
 .post_type label {

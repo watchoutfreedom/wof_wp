@@ -10,7 +10,6 @@ function setPaddingTop() {
   }
 }
   
-  // Run on window load and on window resize to account for changes in menu height
   window.addEventListener('load', setPaddingTop);
   window.addEventListener('resize', setPaddingTop);
   
@@ -65,6 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Gallery element not found.');
   }
 });
+
+
+//scroll
+
+
 
 
 
