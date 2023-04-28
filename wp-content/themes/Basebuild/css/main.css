@@ -124,11 +124,11 @@ em {
 h2 {
   margin: 0.85rem 0;
   padding: 0.2rem 0rem;
-  font-size: 1.21rem;
-  font-family: "Futura", serif;
+  font-size: 1.61rem;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   line-height: normal;
   background: none;
-  font-weight: 400px;
+  font-weight: 600;
 }
 
 h5 {
@@ -179,7 +179,7 @@ form {
 }
 
 section {
-  padding: 0 1rem;
+  margin: 1rem 0;
 }
 
 section p,
@@ -355,6 +355,7 @@ section p {
 .header-nav {
   display: flex;
   flex-direction: column;
+  font-family: "Cocogoose", sans-serif;
   height: auto;
   justify-content: space-between;
   overflow: auto;
@@ -458,7 +459,7 @@ section p {
 
 .footer__contact {
   color: #0F4BF1;
-  font-family: "Futura", serif;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-size: 14px;
   position: relative;
 }
@@ -480,7 +481,7 @@ section p {
 }
 
 .footer__rrss {
-  font-family: "Futura", serif;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-size: 12px;
   color: #7B7B7B;
 }
