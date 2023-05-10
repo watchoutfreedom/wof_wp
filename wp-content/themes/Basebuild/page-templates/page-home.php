@@ -65,8 +65,8 @@ get_header(); ?>
     activity, service, product" posts_per_page="5" post_format="standard"]') 
     ?>
 
-<?php wp_footer(); ?>
-
 </div>
+
+<?php wp_footer(); ?>
 
 

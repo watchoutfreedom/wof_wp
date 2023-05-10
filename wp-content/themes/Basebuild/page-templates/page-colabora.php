@@ -36,7 +36,7 @@ get_header(); ?>
     </section>
     <section>
         <h2>Puedes comprar algún artículo en nuestra tienda.</h2>
-        <a href="/shop" class="button">VER TIENDA</a>
+        <a href="/product" class="button">VER TIENDA</a>
     </section>
     <section>
         <h2>Puedes suscribirte como colaborador y te ayudaremos a aportar tu conocimiento y/o talento.</h2>
