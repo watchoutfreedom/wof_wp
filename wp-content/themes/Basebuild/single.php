@@ -23,21 +23,19 @@ get_header(); ?>
                 $size = 'full'; // (thumbnail, medium, large, full or custom size)
                 if( $images ): ?>
 
-                    <div class="slick-gallery">
-                        <?php 
-                        if(has_post_thumbnail())
-                            echo '<div>' . the_post_thumbnail() . '</div>';
-                        ?>
-                        <?php foreach($images as $image_id): ?>
-                        <div>
-                            <?php echo wp_get_attachment_image($image_id, $size); ?>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-
+                        <div class="slick-gallery">
+                            <?php foreach($images as $image_id): ?>
+                                <div class="img__wrap">
+                                    <?php echo wp_get_attachment_image($image_id, $size); ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>                    
                 <?php 
-                elseif(has_post_thumbnail()): echo the_post_thumbnail();
-                endif; ?>
+                elseif(has_post_thumbnail()):  ?> 
+                    <div class="img__wrap">
+                        <?php echo the_post_thumbnail(); ?>
+                    </div>                
+                <?php endif; ?>
             <?php if(get_post_type() != "product"){ ?>
                 <h1><?php the_title(); ?></h1>
             <?php } ?>

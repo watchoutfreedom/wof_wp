@@ -216,13 +216,16 @@ section p {
   font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  margin: 1rem 0;
+  margin: 1rem auto;
   display: block;
 }
 
 .bottom-action {
   bottom: 20px; /* Add some space from the bottom */
   right: 20px; /* Add some space from the right */
+  position: fixed;
+  width: 100%;
+  margin: auto;
 }
 
 .page-template-page-templatespage-comunidad-php .page {
@@ -244,6 +247,30 @@ section p {
 .main-container {
   margin: auto;
   max-width: 840px;
+}
+
+.contrib__list {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  flex-wrap: inherit;
+  justify-content: center;
+}
+
+.contributor {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 1rem;
+}
+.contributor .avatar {
+  border-radius: 300px;
+  overflow: hidden;
 }
 
 .grid-content,
@@ -501,6 +528,25 @@ section p {
     width: 100%;
   }
 }
+.img__wrap {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 500px;
+}
+.img__wrap a {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.img__wrap img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .gallery {
   margin: 5px;
   border: 1px solid #ccc;
@@ -583,7 +629,7 @@ section p {
 }
 
 .slick-slide img {
-  max-height: 100vh;
+  max-height: 500px;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -644,10 +690,9 @@ section p {
 .excerp {
   font-family: "PT Serif", serif;
   background-color: transparent;
-  font-size: large;
-  font-weight: 600;
-  margin: 0.5rem;
-  margin-bottom: 2rem;
+  font-size: 18px;
+  font-weight: 200;
+  margin-bottom: 1rem;
   line-height: 1.3;
   color: rgb(72, 72, 72);
   padding: 1rem 1rem 1rem 1rem;
@@ -656,25 +701,25 @@ section p {
 }
 
 .excerp::before {
-  content: '"';
+  content: "";
   font-size: 1.8rem;
   color: red; /* revise */
   line-height: 0.1rem;
 }
 
 .excerp::after {
-  content: '"';
+  content: "";
 }
 
 .post-type-archive-product .post_type {
   display: none;
 }
 
-.subtitle {
+.subtitle, .post_type {
   font-size: 1.1rem;
-  color: gold;
+  color: #0F4BF1;
   font-weight: bolder;
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
   line-height: 0.95;
   text-decoration: none;
@@ -695,13 +740,5 @@ section p {
 }
 
 .price {
-  background-color: chartreuse;
-  font-size: 18px;
-}
-
-.post_type label {
-  font-size: 1.2rem;
-  font-weight: 100;
-  background-color: gold;
-  padding: 0 1rem;
+  font-size: 24px;
 }/*# sourceMappingURL=main.css.map */

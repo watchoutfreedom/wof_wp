@@ -20,7 +20,7 @@
     font-family: $font-family-title;
     font-weight: bold;
     letter-spacing: 1px;
-    margin: 1rem 0;
+    margin: 1rem auto;
     display: block;
 
 }
@@ -31,6 +31,11 @@
     // position: fixed;
     bottom: 20px; /* Add some space from the bottom */
     right: 20px; /* Add some space from the right */
+    position: fixed;
+    width: 100%;
+    margin: auto;
+
+
 }
 
 // Test format template (comunidad)
@@ -66,3 +71,35 @@
     margin: auto;
     max-width: 840px; // Variable breakpoints
 }
+
+.contrib__list {
+
+    width: 100%;
+    display: flex;
+    margin: auto;
+    flex-wrap: inherit;
+    justify-content: center;
+
+}
+
+.contributor {
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 1rem;
+
+    .avatar {
+
+        border-radius: 300px;
+        overflow: hidden;
+
+    }
+
+}
+

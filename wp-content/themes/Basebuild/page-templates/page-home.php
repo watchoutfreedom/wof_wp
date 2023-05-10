@@ -15,12 +15,38 @@ get_header(); ?>
       while ( have_posts() ) : the_post(); ?>
     <section>
         <div class="featured">
-            <a href="<?php echo get_permalink() ?>"><?php echo get_the_post_thumbnail(); ?></a>
+            <div class="img__wrap">
+                <a href="<?php echo get_permalink() ?>"><?php echo get_the_post_thumbnail(); ?></a>
+            </div>  
             <div class="post_type">
+                <label class="post_type__label" for="">
+                    <?php 
+                    if ($postType = get_post_type_object(get_post_type())) {
+                        if(get_post_type() == 'post'){
+                            echo esc_html($postType->labels->singular_name);
+                        }
+                    }
+                    ?>
+                </label>
+            </div>
+            <div class="subtitle">
                 <label for="">
-                    <?php
-                        if ($postType = get_post_type_object(get_post_type()))
-                        echo esc_html($postType->labels->singular_name);
+                    <?php 
+                    if(get_post_type()  == 'activity'){
+                        $field_object = get_field_object('type',get_the_ID());
+                        $value = $field_object['value'];
+                        if($field_object) echo "<a href='/".get_post_type()."?type=".$value."'>".$field_object['choices'][$value]."</a> | "; 
+
+                        if(get_field('location',get_the_ID())) echo get_field('location',get_the_ID()); 
+                        if(get_field('initial_date',get_the_ID())) echo " | ".get_field('initial_date',get_the_ID());
+                        if(get_field('end_date',get_the_ID())) echo " - ".get_field('end_date',get_the_ID());
+
+                    }
+                    if(get_post_type()  == 'service' || get_post_type()  == 'product'){
+                        $field_object = get_field_object('type',get_the_ID());
+                        $value = $field_object['value'];
+                        if($field_object) echo "<a href='/".get_post_type()."?type=".$value."'>".$field_object['choices'][$value]."</a>"; 
+                    }		
                     ?>
                 </label>
             </div>
@@ -39,8 +65,8 @@ get_header(); ?>
     activity, service, product" posts_per_page="5" post_format="standard"]') 
     ?>
 
-</div>
-
 <?php wp_footer(); ?>
 
-<a class="button bottom-action" href="signup">SUSCRIBIRME</a>
+</div>
+
+
