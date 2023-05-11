@@ -103,7 +103,9 @@ h1 {
     font-size: 1.9rem;
 }
 
-p {
+p,
+ul,
+li {
   /* white-space: nowrap; */
       hyphens: auto;
       color: #333;
@@ -152,3 +154,4 @@ section {
     color: #333; // Variable
   }
 }
+

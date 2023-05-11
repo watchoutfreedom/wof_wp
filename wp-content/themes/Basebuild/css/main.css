@@ -155,7 +155,9 @@ h1 {
   font-size: 1.9rem;
 }
 
-p {
+p,
+ul,
+li {
   /* white-space: nowrap; */
   -webkit-hyphens: auto;
           hyphens: auto;
