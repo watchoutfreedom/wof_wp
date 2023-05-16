@@ -1,6 +1,6 @@
 <?php if($args['type'] == null || $args['type'] == get_field('type',get_the_ID())){ ?>
 <section>
-    <a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a>
+    <div class="img__wrap"><a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a></div>
     <div class="post_type">
         <label class="post_type__label" for="">
         <?php 

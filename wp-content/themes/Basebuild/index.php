@@ -21,7 +21,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<section class="post-item">
 					<div class="">
-						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
+						<div class="img__wrap"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a></div>
 						<a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
 						<p><?php echo get_field('excerpt',get_the_ID()) ?></p>
 						<div class="author"><span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span></div>

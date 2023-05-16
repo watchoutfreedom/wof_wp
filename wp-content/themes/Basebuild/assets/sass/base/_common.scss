@@ -103,9 +103,7 @@ h1 {
     font-size: 1.9rem;
 }
 
-p,
-ul,
-li {
+p {
   /* white-space: nowrap; */
       hyphens: auto;
       color: #333;
@@ -115,7 +113,6 @@ li {
       line-height: 1.6875rem !important;
       letter-spacing: 0;
 }
-
 
 input {
 
@@ -130,6 +127,12 @@ input {
 form {
 
   margin-bottom: 1rem;
+
+    label {
+
+      font-size: medium;
+
+    }
 
 }
 
@@ -154,4 +157,3 @@ section {
     color: #333; // Variable
   }
 }
-

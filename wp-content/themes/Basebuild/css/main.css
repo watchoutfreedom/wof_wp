@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap");
 body {
   font-family: "Roboto", sans-serif;
@@ -155,9 +156,7 @@ h1 {
   font-size: 1.9rem;
 }
 
-p,
-ul,
-li {
+p {
   /* white-space: nowrap; */
   -webkit-hyphens: auto;
           hyphens: auto;
@@ -180,6 +179,9 @@ input {
 form {
   margin-bottom: 1rem;
 }
+form label {
+  font-size: medium;
+}
 
 section {
   margin: 1rem 0;
@@ -200,6 +202,59 @@ section p {
 
 .post-item {
   position: relative;
+}
+
+.content ul,
+.content li {
+  /* white-space: nowrap; */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  color: #333;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0;
+  margin: 1rem 0rem 0.85rem 1rem;
+}
+
+.answers ul,
+.answers li {
+  /* white-space: nowrap; */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  color: #333;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0;
+  margin: 1rem 0rem 0.85rem 1rem;
+}
+
+.bibliography ul,
+.bibliography li {
+  /* white-space: nowrap; */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  color: #333;
+  font-style: italic;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  font-size: 1rem !important;
+  line-height: 1.2rem !important;
+  letter-spacing: 0;
+  list-style-type: decimal;
+  margin-bottom: 5px;
+  padding-left: 20px; /* Añade un espaciado a la izquierda para dar espacio al número */
+  position: relative;
+}
+
+.bibliography::before {
+  content: "";
+  display: block;
+  border-top: 1px solid #000;
+  margin-bottom: 10px;
 }
 
 .button__links {
@@ -228,6 +283,10 @@ section p {
   position: fixed;
   width: 100%;
   margin: auto;
+}
+
+.link {
+  text-decoration: underline;
 }
 
 .page-template-page-templatespage-comunidad-php .page {
@@ -680,7 +739,8 @@ section p {
 
 .author {
   color: #9f9f9f;
-  padding: 0.2rem 0.4rem;
+  padding: 0.2rem 0 0.2rem 0;
+  font-size: 14px;
 }
 
 .type {
@@ -738,9 +798,14 @@ section p {
 
 .author {
   color: #0F4BF1;
-  font-size: 12px;
 }
 
 .price {
   font-size: 24px;
+}
+
+.answer__to {
+  text-decoration: underline;
+  color: #333;
+  padding: 0.2rem 0.4rem;
 }/*# sourceMappingURL=main.css.map */

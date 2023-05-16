@@ -1,6 +1,73 @@
 .post-item {
     position: relative;
 }
+
+.content {
+
+    ul,
+    li {
+    /* white-space: nowrap; */
+        hyphens: auto;
+        color: #333;
+        font-family: "PT Serif",serif;
+        font-weight: 500;
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+        letter-spacing: 0;
+        margin: 1rem 0rem .85rem 1rem;
+
+    }
+
+}
+
+.answers {
+
+    ul,
+    li {
+    /* white-space: nowrap; */
+        hyphens: auto;
+        color: #333;
+        font-family: "PT Serif",serif;
+        font-weight: 500;
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;
+        letter-spacing: 0;
+        margin: 1rem 0rem .85rem 1rem;
+
+    }
+
+}
+
+.bibliography {
+
+    ul,
+    li {
+    /* white-space: nowrap; */
+        hyphens: auto;
+        color: #333;
+        font-style: italic;
+        font-family: "PT Serif",serif;
+        font-weight: 500;
+        font-size: 1rem !important;
+        line-height: 1.2rem !important;
+        letter-spacing: 0;
+        list-style-type: decimal;
+        margin-bottom: 5px;
+        padding-left: 20px; /* Añade un espaciado a la izquierda para dar espacio al número */
+        position: relative;
+
+    }
+
+}
+
+.bibliography::before {
+
+    content: "";
+    display: block;
+    border-top: 1px solid #000;
+    margin-bottom: 10px;
+
+}
   
 .button__links {
     display: block;
@@ -38,6 +105,12 @@
 
 }
 
+.link {
+
+    text-decoration: underline;
+
+}
+
 // Test format template (comunidad)
 
 .page-template-page-templatespage-comunidad-php {
@@ -70,6 +143,8 @@
 
     margin: auto;
     max-width: 840px; // Variable breakpoints
+
+
 }
 
 .contrib__list {
@@ -102,4 +177,3 @@
     }
 
 }
-

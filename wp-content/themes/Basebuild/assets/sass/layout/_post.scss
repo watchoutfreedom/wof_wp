@@ -51,7 +51,8 @@
 .author {
 
     color: #9f9f9f;
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem 0 0.2rem 0;
+    font-size: $font-size-02;
 
 }
 
@@ -126,7 +127,7 @@
   .author {
   
     color: $color-first; //variable
-    font-size: $font-size-01;
+    // font-size: $font-size-02;
 
   
   }
@@ -144,10 +145,20 @@
   }
   
   .post_type {
+
+
   }
 
   .post_type__label {
 
 
+
+  }
+
+  .answer__to {
+
+    text-decoration: underline;
+    color: #333;
+    padding: 0.2rem 0.4rem;    
 
   }
