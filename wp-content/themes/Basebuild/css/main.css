@@ -319,11 +319,12 @@ section p {
 }
 
 .contributor {
-  display: flex;
+  display: none;
   flex-flow: column;
   justify-content: center;
   align-items: center;
   width: 200px;
+  max-height: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
