@@ -25,7 +25,7 @@ get_header(); ?>
 
 	<?php 
     //lazy load
-    echo do_shortcode('[ajax_load_more id="6962705037" tag="'.get_query_var('tag').'" custom_args="type:'.get_query_var('type').'" loading_style="infinite classic" post_type="'.$post_type.'" posts_per_page="5" post_format="standard"]') 
+    echo do_shortcode('[ajax_load_more id="6962705037" tag="'.get_query_var('tag').'" custom_args="type:'.get_query_var('type').'" loading_style="infinite" post_type="'.$post_type.'" posts_per_page="5" post_format="standard"]') 
     ?>
 </div>
 
