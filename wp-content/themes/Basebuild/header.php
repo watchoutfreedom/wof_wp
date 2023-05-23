@@ -21,11 +21,11 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
-  <script src="scripts.js?ver=1.0" defer></script>
 
   <link rel='dns-prefetch' href='//polyfill.io' />
   <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 	<?php wp_head(); ?>
+  
 </head>
 
 <body <?php body_class(); ?>>
@@ -46,7 +46,7 @@
         <?php 
           $tag_page = get_queried_object();
           foreach(get_tags() as $tag):?>
-            <li><a <?php if($tag_page->slug == $tag->name) echo "aria-current='page'"; ?>  href="<?php echo get_tag_link( $tag->term_id )?>"><?php echo $tag->name ?></a></li>
+            <li <?php if($tag_page->slug == $tag->name) echo 'class="is-active"'; ?>><a href="<?php echo get_tag_link( $tag->term_id )?>"><?php echo $tag->name ?></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -63,7 +63,7 @@
             //only show if type has posts
            // if(get_posts(array('post_type' => get_queried_object()->name,'meta_query' => array(array('key' => 'type','value' => $choice,'compare' => 'LIKE'))))){ 
           ?>
-            <li><a <?php if(get_query_var('type') == $choice) echo "aria-current='page'"; ?> href="/<?php echo get_queried_object()->rewrite['slug'].'/?type='.$choice ?>"><?php echo get_field_object($field)['choices'][$choice]; ?></a></li>
+            <li <?php if(get_query_var('type') == $choice) echo 'class="is-active"'; ?>><a href="/<?php echo get_queried_object()->rewrite['slug'].'/?type='.$choice ?>"><?php echo get_field_object($field)['choices'][$choice]; ?></a></li>
       <?php //} 
         endforeach; ?>
         </ul>
