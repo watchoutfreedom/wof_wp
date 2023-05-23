@@ -93,6 +93,15 @@
         padding: 12px 10px;
       }
     }
+
+    li.is-active{
+      order: -1;
+
+      a{
+        color:red;
+      }
+    }
+    
   }
 }
 
