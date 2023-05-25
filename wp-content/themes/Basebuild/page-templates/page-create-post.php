@@ -42,7 +42,7 @@ get_header(); ?>
     else{
 
         if($_GET['action'] == "create" && isset($_GET['id']))
-            echo "<h4>Respuesta a <a href='".get_permalink($_GET['id'])."'>".get_the_title($_GET['id'])."</a></4>";
+            echo "<div class='excerp'>Responder a <a class='answer__to' href='".get_permalink($_GET['id'])."'>".get_the_title($_GET['id'])."</a></div>";
 
         acf_form(array(
             'post_id'       => 'new_post',

@@ -51,7 +51,8 @@
 .author {
 
     color: #9f9f9f;
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem 0 0.2rem 0;
+    font-size: $font-size-02;
 
 }
 
@@ -65,22 +66,23 @@
 
 
 .excerp {
+
     font-family: "PT Serif",serif;
     background-color: transparent;
-    font-size:  large;
-    font-weight: 600;
-    margin: 0.5rem ;
-    margin-bottom: 2rem;
+    font-size:  $font-size-03;
+    font-weight: 200;
+    margin-bottom: 1rem;
     line-height: 1.3;
     color: rgb(72, 72, 72);
     padding: 1rem 1rem 1rem 1rem;
     background-color: rgb(243, 243, 243);
     border-radius: 3px;
+
 }
 
 .excerp::before {
 
-    content: '"';
+    content: '';
     font-size: 1.8rem;
     color: red; /* revise */
     line-height: 0.1rem;
@@ -89,7 +91,7 @@
   
 .excerp::after {
 
-    content: '"';
+    content: '';
 
 }
 
@@ -99,12 +101,12 @@
 
 
 
-.subtitle {
+.subtitle, .post_type  {
 
     font-size: 1.1rem;
-      color: gold;
+      color: $color-first;
       font-weight: bolder;
-      margin: 0;
+      margin: 1rem 0;
       padding: 0;
       line-height: 0.95;
       text-decoration: none;
@@ -124,8 +126,9 @@
   
   .author {
   
-    color: darkgrey; //variable
-    font-size: 0.7rem;
+    color: $color-first; //variable
+    // font-size: $font-size-02;
+
   
   }
   
@@ -136,17 +139,26 @@
   
   .price {
   
-    background-color: chartreuse; //variables
-  
+    font-size: $font-size-04;
+
+
   }
   
   .post_type {
 
 
-    label {
-      font-size: 1.2rem;
-      font-weight: 100;
-      background-color: gold;
-      padding: 0 1rem;
-        }
+  }
+
+  .post_type__label {
+
+
+
+  }
+
+  .answer__to {
+
+    text-decoration: underline;
+    color: #333;
+    padding: 0.2rem 0.4rem;    
+
   }

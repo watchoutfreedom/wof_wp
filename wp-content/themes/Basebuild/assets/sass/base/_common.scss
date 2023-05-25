@@ -66,18 +66,19 @@ em {
 
 
 h2 {
-  margin: 0.85rem 0;
+  margin: 0.5rem 0;
   padding: 0.2rem 0rem;
-  font-size: 1.21rem;
+  font-size: 1.61rem;
   font-family: $font-family-title;
   line-height: normal;
   background: none;
-  font-weight: 400px;
+  font-weight: 600;
 }
 
 
 h5 {
 
+  line-height: 2rem;
   font-size: medium; //variables
 
 }
@@ -113,7 +114,6 @@ p {
       letter-spacing: 0;
 }
 
-
 input {
 
   width: 100%;
@@ -128,10 +128,17 @@ form {
 
   margin-bottom: 1rem;
 
+    label {
+
+      font-size: medium;
+
+    }
+
 }
 
 section {
-  padding: 0 1rem;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
 }
 
 // General foramt

@@ -23,21 +23,19 @@ get_header(); ?>
                 $size = 'full'; // (thumbnail, medium, large, full or custom size)
                 if( $images ): ?>
 
-                    <div class="slick-gallery">
-                        <?php 
-                        if(has_post_thumbnail())
-                            echo '<div>' . the_post_thumbnail() . '</div>';
-                        ?>
-                        <?php foreach($images as $image_id): ?>
-                        <div>
-                            <?php echo wp_get_attachment_image($image_id, $size); ?>
-                        </div>
-                        <?php endforeach; ?>
-                    </div>
-
+                        <div class="slick-gallery">
+                            <?php foreach($images as $image_id): ?>
+                                <div class="img__wrap">
+                                    <?php echo wp_get_attachment_image($image_id, $size); ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>                    
                 <?php 
-                elseif(has_post_thumbnail()): echo the_post_thumbnail();
-                endif; ?>
+                elseif(has_post_thumbnail()):  ?> 
+                    <div class="img__wrap">
+                        <?php echo the_post_thumbnail(); ?>
+                    </div>                
+                <?php endif; ?>
             <?php if(get_post_type() != "product"){ ?>
                 <h1><?php the_title(); ?></h1>
             <?php } ?>
@@ -70,7 +68,7 @@ get_header(); ?>
 
                     <span class="author"><?php the_author() ?></span> | 
                     <span class="date"><?php the_date() ?></span>
-                    <?php if($answer_to = get_field('answer_to')) echo " | <a href=".get_permalink($answer_to).">".get_the_title($answer_to)."</a>";?>
+                    <?php if($answer_to = get_field('answer_to')) echo " | Artículo respuesta a <a class='answer__to' href=".get_permalink($answer_to).">".get_the_title($answer_to)."</a>";?>
 
                 <?php } ?>
 
@@ -125,12 +123,15 @@ get_header(); ?>
                 ?>
             </div>
             <?php if(get_post_type() == "post"){ ?>
-            <div class="bibliography">
-                <ul>
-                <?php foreach(get_field('bibliography') as $book) echo "<li>".$book['book']."</li>"; ?>
-                </ul>
-                <br>
-            </div>
+                <?php if(get_field('bibliography')){ ?>
+                    <h2 class="bibliography__heading">Bibliografía</h2>
+                    <div class="bibliography">
+                        <ul>
+                        <?php foreach(get_field('bibliography') as $book) echo "<li>".$book['book']."</li>"; ?>
+                        </ul>
+                        <br>
+                    </div>
+                 <?php } ?>
             <?php } ?>
 
 
@@ -217,7 +218,7 @@ get_header(); ?>
         <ul>
         <?php
             foreach($posts as $post)
-                echo "<li><a href='".get_permalink($post->ID)."'>".$post->post_title."</a></li>";?>
+                echo "<li><a href='".get_permalink($post->ID)."'>".$post->post_title."</a> por ".$post->the_author_meta( 'user_nicename' , the_author() );"</li>";?>
         </ul>
     </section>
 

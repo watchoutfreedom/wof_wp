@@ -1,18 +1,17 @@
-function setPaddingTop() {
-  var menu = document.querySelector('.fixed-menu');
-  var content = document.querySelector('body');
+// function setPaddingTop() {
+//   var menu = document.querySelector('.fixed-menu');
+//   var content = document.querySelector('body');
 
-  if (menu && content) {
-    var menuHeight = menu.offsetHeight;
-    content.style.paddingTop = menuHeight + 'px';
-  } else {
-    console.error('Either .fixed-menu or body element not found.');
-  }
-}
+//   if (menu && content) {
+//     var menuHeight = menu.offsetHeight;
+//     content.style.paddingTop = menuHeight + 'px';
+//   } else {
+//     console.error('Either .fixed-menu or body element not found.');
+//   }
+// }
   
-  // Run on window load and on window resize to account for changes in menu height
-  window.addEventListener('load', setPaddingTop);
-  window.addEventListener('resize', setPaddingTop);
+//   window.addEventListener('load', setPaddingTop);
+//   window.addEventListener('resize', setPaddingTop);
   
   document.addEventListener("DOMContentLoaded", function() {
     const postGrid = document.getElementById("posts-grid");
@@ -24,6 +23,7 @@ function setPaddingTop() {
       postItems[0].style.gridColumn = "span 2";
       postItems[1].style.gridColumn = "span 1";
       postItems[2].style.gridColumn = "span 1";
+
 
       // Second row
       postItems[3].style.gridColumn = "span 2";
@@ -65,6 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Gallery element not found.');
   }
 });
+
+
+//scroll
+
+
 
 
 

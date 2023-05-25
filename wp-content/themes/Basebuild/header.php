@@ -16,8 +16,28 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+	<title>Watch Out, Freedom! | Iniciativas para difundir conocimiento, fomentar la colaboración y ofrecer consultoría creativa</title>
+	<meta name="description" content="Watch Out, Freedom! es una asociación sin fines de lucro que crea iniciativas para difundir conocimiento sobre temas clave, fomentar la colaboración y ofrecer consultoría creativa a otras iniciativas alineadas con nuestros objetivos. ¡Únete a nosotros!">
+	<meta name="keywords" content="Watch Out, Freedom!, asociación, sin fines de lucro, iniciativas, conocimiento, colaboración, consultoría creativa, objetivos">
+	<meta name="author" content="Watch Out, Freedom!">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Watch Out, Freedom! | Iniciativas para difundir conocimiento, fomentar la colaboración y ofrecer consultoría creativa">
+	<meta property="og:description" content="Watch Out, Freedom! es una asociación sin fines de lucro que crea iniciativas para difundir conocimiento sobre temas clave, fomentar la colaboración y ofrecer consultoría creativa a otras iniciativas alineadas con nuestros objetivos. ¡Únete a nosotros!">
+	<meta property="og:image" content="https://www.watchoutfreedom.com/images/logo.png">
+	<meta property="og:url" content="https://www.watchoutfreedom.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="es_ES">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Watch Out, Freedom! | Iniciativas para difundir conocimiento, fomentar la colaboración y ofrecer consultoría creativa">
+	<meta name="twitter:description" content="Watch Out, Freedom! es una asociación sin fines de lucro que crea iniciativas para difundir conocimiento sobre temas clave, fomentar la colaboración y ofrecer consultoría creativa a otras iniciativas alineadas con nuestros objetivos. ¡Únete a nosotros!">
+	<meta name="twitter:image" content="https://www.watchoutfreedom.com/images/logo.png">
+  <link rel="icon" href="https://watchoutfreedom.com/assets/favicon.ico" type="image/x-icon">
+  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-  <link href='https://fonts.googleapis.com/css?family=Coco+Goose' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,500;0,800;1,200;1,500;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
@@ -34,7 +54,7 @@
   <header class="header header-fixed u-unselectable">
     <div class="header-top"> 
       <div class="header-brand">
-      <div class="nav-item no-hover"><a href="<?php echo get_home_url(); ?>">Wof!<?php 	the_custom_logo(); ?></a></div>
+      <div class="nav-item no-hover"><a class="title" href="<?php echo get_home_url(); ?>">Wof!<?php 	the_custom_logo(); ?></a></div>
         <div class="nav-item nav-btn" id="header-btn"><span></span><span></span><span></span></div>
       </div>
       <div class="header-nav" id="header-menu">

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap");
 body {
   font-family: "Roboto", sans-serif;
@@ -122,16 +123,17 @@ em {
 }
 
 h2 {
-  margin: 0.85rem 0;
+  margin: 0.5rem 0;
   padding: 0.2rem 0rem;
-  font-size: 1.21rem;
-  font-family: "Futura", serif;
+  font-size: 1.61rem;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   line-height: normal;
   background: none;
-  font-weight: 400px;
+  font-weight: 600;
 }
 
 h5 {
+  line-height: 2rem;
   font-size: medium;
 }
 
@@ -176,9 +178,13 @@ input {
 form {
   margin-bottom: 1rem;
 }
+form label {
+  font-size: medium;
+}
 
 section {
-  padding: 0 1rem;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
 }
 
 section p,
@@ -197,6 +203,59 @@ section p {
   position: relative;
 }
 
+.content ul,
+.content li {
+  /* white-space: nowrap; */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  color: #333;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0;
+  margin: 1rem 0rem 0.85rem 1rem;
+}
+
+.answers ul,
+.answers li {
+  /* white-space: nowrap; */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  color: #333;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  letter-spacing: 0;
+  margin: 1rem 0rem 0.85rem 1rem;
+}
+
+.bibliography ul,
+.bibliography li {
+  /* white-space: nowrap; */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  color: #333;
+  font-style: italic;
+  font-family: "PT Serif", serif;
+  font-weight: 500;
+  font-size: 1rem !important;
+  line-height: 1.2rem !important;
+  letter-spacing: 0;
+  list-style-type: decimal;
+  margin-bottom: 5px;
+  padding-left: 20px; /* Añade un espaciado a la izquierda para dar espacio al número */
+  position: relative;
+}
+
+.bibliography::before {
+  content: "";
+  display: block;
+  border-top: 1px solid #000;
+  margin-bottom: 10px;
+}
+
 .button__links {
   display: block;
   font-size: small;
@@ -210,17 +269,23 @@ section p {
   color: white;
   padding: 16px 32px;
   font-size: 1rem;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
-  margin: 1rem 0;
+  margin: 1rem auto;
   display: block;
 }
 
 .bottom-action {
+  bottom: 20px; /* Add some space from the bottom */
+  right: 20px; /* Add some space from the right */
   position: fixed;
-  bottom: 0;
-  margin: 1rem;
   width: 100%;
+  margin: auto;
+}
+
+.link {
+  text-decoration: underline;
 }
 
 .page-template-page-templatespage-comunidad-php .page {
@@ -242,6 +307,31 @@ section p {
 .main-container {
   margin: auto;
   max-width: 840px;
+}
+
+.contrib__list {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  flex-wrap: inherit;
+  justify-content: center;
+}
+
+.contributor {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  max-height: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 1rem;
+}
+.contributor .avatar {
+  border-radius: 300px;
+  overflow: hidden;
 }
 
 .grid-content,
@@ -354,6 +444,7 @@ section p {
 .header-nav {
   display: flex;
   flex-direction: column;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   height: auto;
   justify-content: space-between;
   overflow: auto;
@@ -463,7 +554,7 @@ section p {
 
 .footer__contact {
   color: #0F4BF1;
-  font-family: "Futura", serif;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-size: 14px;
   position: relative;
 }
@@ -485,7 +576,7 @@ section p {
 }
 
 .footer__rrss {
-  font-family: "Futura", serif;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
   font-size: 12px;
   color: #7B7B7B;
 }
@@ -504,6 +595,25 @@ section p {
     width: 100%;
   }
 }
+.img__wrap {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 500px;
+}
+.img__wrap a {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.img__wrap img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .gallery {
   margin: 5px;
   border: 1px solid #ccc;
@@ -585,7 +695,7 @@ section p {
 }
 
 .slick-slide img {
-  max-height: 100vh;
+  max-height: 500px;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
@@ -634,7 +744,8 @@ section p {
 
 .author {
   color: #9f9f9f;
-  padding: 0.2rem 0.4rem;
+  padding: 0.2rem 0 0.2rem 0;
+  font-size: 14px;
 }
 
 .type {
@@ -646,10 +757,9 @@ section p {
 .excerp {
   font-family: "PT Serif", serif;
   background-color: transparent;
-  font-size: large;
-  font-weight: 600;
-  margin: 0.5rem;
-  margin-bottom: 2rem;
+  font-size: 18px;
+  font-weight: 200;
+  margin-bottom: 1rem;
   line-height: 1.3;
   color: rgb(72, 72, 72);
   padding: 1rem 1rem 1rem 1rem;
@@ -658,25 +768,25 @@ section p {
 }
 
 .excerp::before {
-  content: '"';
+  content: "";
   font-size: 1.8rem;
   color: red; /* revise */
   line-height: 0.1rem;
 }
 
 .excerp::after {
-  content: '"';
+  content: "";
 }
 
 .post-type-archive-product .post_type {
   display: none;
 }
 
-.subtitle {
+.subtitle, .post_type {
   font-size: 1.1rem;
-  color: gold;
+  color: #0F4BF1;
   font-weight: bolder;
-  margin: 0;
+  margin: 1rem 0;
   padding: 0;
   line-height: 0.95;
   text-decoration: none;
@@ -692,17 +802,15 @@ section p {
 }
 
 .author {
-  color: darkgrey;
-  font-size: 0.7rem;
+  color: #0F4BF1;
 }
 
 .price {
-  background-color: chartreuse;
+  font-size: 24px;
 }
 
-.post_type label {
-  font-size: 1.2rem;
-  font-weight: 100;
-  background-color: gold;
-  padding: 0 1rem;
+.answer__to {
+  text-decoration: underline;
+  color: #333;
+  padding: 0.2rem 0.4rem;
 }/*# sourceMappingURL=main.css.map */

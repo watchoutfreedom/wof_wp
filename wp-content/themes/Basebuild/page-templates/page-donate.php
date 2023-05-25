@@ -13,7 +13,7 @@ get_header(); ?>
     </p>
     </section>
     <div>
-        <a href="#" class="button">STRIPE</a>
+        <a href="#" class="button">FIAT</a>
     </div>
     <div>
         <a href="#" class="button">BTC</a>
