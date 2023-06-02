@@ -152,7 +152,7 @@ get_header(); ?>
             ?>
             <?php } ?>
             <?php if(get_post_type() == "product"){ ?>
-                <a class="button" href="">COMPRAR</a>
+                <a class="button" href="<?php echo get_field("link")?>">COMPRAR</a>
             <?php } ?>
             <?php if(get_post_type() == "service"){ ?>
                 <a class="button" href="mailto:test@example.com?subject=<?php the_title(); ?>">SOLICITAR</a>
