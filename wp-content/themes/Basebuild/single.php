@@ -138,7 +138,7 @@ get_header(); ?>
 
             <div>
             <?php if(get_post_type() == "activity"){ ?>
-                <a class="button" href="">UNIRME</a>
+                <a class="button" href="">APOYAR PROYECTO</a>
             <?php } ?>
             <?php if(get_post_type() == "post"){
                     if(wp_get_current_user()->ID == $post->post_author 

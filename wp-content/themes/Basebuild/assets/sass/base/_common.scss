@@ -70,7 +70,7 @@ h2 {
   padding: 0.2rem 0rem;
   font-size: 1.61rem;
   font-family: $font-family-title;
-  line-height: normal;
+  line-height: 1.72rem;
   background: none;
   font-weight: 600;
 }
@@ -91,16 +91,33 @@ img {
 
 
 hr {
-  margin: 2rem 0 0;
+
+  margin: 0.6rem 0 0;
   border-color: #ccc;
   border-top: 0;
+  height: 1px;
+  border-bottom: 1px dashed $color-first;
+
 }
 
 h1 {
     margin: 1rem 0;
+    font-family: $font-family-title;
     color: black; // Variables
     font-weight: bolder; // Variables
+    font-family: $font-family-title;
     font-size: 1.9rem;
+    line-height: 2.2rem;
+}
+
+section, p {
+  /* white-space: nowrap; */
+      hyphens: auto;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem !important;
+      line-height: 1.6875rem !important;
+      letter-spacing: 0;
 }
 
 p {
@@ -156,4 +173,28 @@ section {
     line-height: 1.2rem;
     color: #333; // Variable
   }
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  hr {
+    margin: 2rem 0 0;
+  }
+
+
+  h2 {
+
+    line-height: normal;
+
+  }
+
 }

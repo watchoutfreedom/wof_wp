@@ -37,6 +37,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,500;0,800;1,200;1,500;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
@@ -54,7 +55,7 @@
   <header class="header header-fixed u-unselectable">
     <div class="header-top"> 
       <div class="header-brand">
-      <div class="nav-item no-hover"><a class="title" href="<?php echo get_home_url(); ?>">Wof!<?php 	the_custom_logo(); ?></a></div>
+      <div class="nav-item no-hover"><a class="title" href="<?php echo get_home_url(); ?>"><?php 	the_custom_logo(); ?></a></div>
         <div class="nav-item nav-btn" id="header-btn"><span></span><span></span><span></span></div>
       </div>
       <div class="header-nav" id="header-menu">
@@ -62,7 +63,13 @@
       <?php if ( is_home() || is_tag()):?>
         <div class="header-right">
         <ul>
-        <li><a href="/blog">ALL</a></li>
+          <li>
+            <button class="header__menu" id="layoutToggle">
+              <i class="fas fa-bars" id="menuIcon"></i>
+              <i class="fas fa-times" id="closeIcon" style="display: none;"></i>
+            </button>
+          </li>
+          <li><a href="/blog">ALL</a></li>
         <?php 
           $tag_page = get_queried_object();
           foreach(get_tags() as $tag):?>

@@ -99,9 +99,19 @@
     display:none;
 }
 
+.featured__title   {
 
+    font-size: 1rem;
+    color: $color-first;
+    font-weight: lighter;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    line-height: 0.95;
+    text-decoration: none;
 
-.subtitle, .post_type  {
+}
+
+.subtitle, .post_type   {
 
     font-size: 1.1rem;
       color: $color-first;
@@ -116,10 +126,12 @@
   .featured {
   
     padding: 1rem;
-    background: whitesmoke; //variable
+    border-radius: 3px;
+    background: $color-white; //variable
+    border: 1px dashed $color-first;
   
   }
-  
+
   .feature:before {
     content:'featured';
   }

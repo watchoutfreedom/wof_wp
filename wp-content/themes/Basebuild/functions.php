@@ -281,7 +281,7 @@ add_action('wp_head', 'mbe_wp_head');
 function mbe_wp_head(){
     echo '<style>'
     .PHP_EOL
-    .'body{ padding-top: 70px !important; }'
+    .'body{ padding-top: 70px ; }'
     .PHP_EOL
     .'body.body-logged-in .navbar-fixed-top{ top: 46px !important; }'
     .PHP_EOL
@@ -289,7 +289,7 @@ function mbe_wp_head(){
     .PHP_EOL
     .'@media only screen and (min-width: 783px) {'
     .PHP_EOL
-    .'body{ padding-top: 70px !important; }'
+    .'body{ padding-top: 70px ; }'
     .PHP_EOL
     .'body.body-logged-in header{ top: 28px !important; }'
     .PHP_EOL
