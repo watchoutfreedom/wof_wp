@@ -123,15 +123,20 @@ get_header(); ?>
                 ?>
             </div>
             <?php if(get_post_type() == "post"){ ?>
-                <?php if(get_field('bibliography')){ ?>
+            <?php 
+                $bibliography = get_field('bibliography');
+                if(!empty($bibliography)){ ?>
                     <h2 class="bibliography__heading">Bibliografía</h2>
                     <div class="bibliography">
                         <ul>
-                        <?php foreach(get_field('bibliography') as $book) echo "<li>".$book['book']."</li>"; ?>
+                        <?php foreach($bibliography as $book) {
+                            if (!empty($book['book'])) { // check if each book is not empty
+                                echo "<li>".$book['book']."</li>"; 
+                            }
+                        } ?>
                         </ul>
-                        <br>
                     </div>
-                 <?php } ?>
+            <?php } ?>
             <?php } ?>
 
 
