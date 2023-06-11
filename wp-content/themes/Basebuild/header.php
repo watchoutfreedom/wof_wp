@@ -15,23 +15,36 @@
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
+  <meta content="text/html; charset=UTF-8" name="Content-Type" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8">
-	<title>Watch Out, Freedom! | Iniciativas para difundir conocimiento, fomentar la colaboración y ofrecer consultoría creativa</title>
-	<meta name="description" content="Watch Out, Freedom! es una asociación sin fines de lucro que crea iniciativas para difundir conocimiento sobre temas clave, fomentar la colaboración y ofrecer consultoría creativa a otras iniciativas alineadas con nuestros objetivos. ¡Únete a nosotros!">
 	<meta name="keywords" content="Watch Out, Freedom!, asociación, sin fines de lucro, iniciativas, conocimiento, colaboración, consultoría creativa, objetivos">
 	<meta name="author" content="Watch Out, Freedom!">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:title" content="Watch Out, Freedom! | Iniciativas para difundir conocimiento, fomentar la colaboración y ofrecer consultoría creativa">
-	<meta property="og:description" content="Watch Out, Freedom! es una asociación sin fines de lucro que crea iniciativas para difundir conocimiento sobre temas clave, fomentar la colaboración y ofrecer consultoría creativa a otras iniciativas alineadas con nuestros objetivos. ¡Únete a nosotros!">
-	<meta property="og:image" content="https://www.watchoutfreedom.com/images/logo.png">
+  <?php if(is_front_page()){
+    $title = "Watch Out, Freedom! | Iniciativas para difundir conocimiento, fomentar la colaboración y ofrecer consultoría creativa";
+    $description = "descricao";
+    $image = "https://www.watchoutfreedom.com/images/logo.png";
+  }
+  ?>
+  <?php if(is_single()){
+    $title = "Watch Out, Freedom! | ".get_the_title();
+    $description = get_field("excerpt");
+    $image = get_the_post_thumbnail_url();
+  }?>
+
+  <title><?php echo $title ?></title>
+	<meta property="og:title" content="<?php echo $title ?>">
+  <meta name="twitter:title" content="<?php echo $title ?>">
+  <meta name="description" content="<?php echo $description ?>">
+  <meta property="og:description" content="<?php echo $description ?>">
+  <meta name="twitter:description" content="<?php echo $description ?>">
+  <meta property="og:image" content="<?php echo $image ?>">
 	<meta property="og:url" content="https://www.watchoutfreedom.com/">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="es_ES">
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Watch Out, Freedom! | Iniciativas para difundir conocimiento, fomentar la colaboración y ofrecer consultoría creativa">
-	<meta name="twitter:description" content="Watch Out, Freedom! es una asociación sin fines de lucro que crea iniciativas para difundir conocimiento sobre temas clave, fomentar la colaboración y ofrecer consultoría creativa a otras iniciativas alineadas con nuestros objetivos. ¡Únete a nosotros!">
-	<meta name="twitter:image" content="https://www.watchoutfreedom.com/images/logo.png">
+	<meta name="twitter:image" content="<?php echo $image ?>">
   <link rel="icon" href="https://watchoutfreedom.com/assets/favicon.ico" type="image/x-icon">
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
