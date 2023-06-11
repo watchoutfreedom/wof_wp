@@ -170,10 +170,27 @@
     text-overflow: ellipsis;
     margin: 1rem;
 
+    h2 {
+
+        font-size: $font-size-03;
+
+    }
+
     .avatar {
 
         border-radius: 300px;
         overflow: hidden;
+        width: 150px;
+        height: 150px;
+
+    }
+
+    img {
+
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+        margin: auto;
 
     }
 

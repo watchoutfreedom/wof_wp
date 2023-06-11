@@ -13,10 +13,10 @@ get_header(); ?>
     </p>
     </section>
     <div>
-        <a href="#" class="button">FIAT</a>
+        <a href="https://buy.stripe.com/9AQ5kl3CYaIvgRW6ou" class="button">FIAT</a>
     </div>
     <div>
-        <a href="#" class="button">BTC</a>
+        <!-- <a href="" class="button">BTC</a> -->
     </div>
     <p>O puedes  aportar con un  ingreso directo en la cuenta: ES193139000313
     </p>

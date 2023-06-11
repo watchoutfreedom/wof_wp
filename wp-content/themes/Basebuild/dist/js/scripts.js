@@ -14,6 +14,13 @@
 //   window.addEventListener('resize', setPaddingTop);
   
   document.addEventListener("DOMContentLoaded", function() {
+
+    
+    // Run the function initially
+    adjustBodyPadding();
+    window.onresize = adjustBodyPadding;
+
+
     const postGrid = document.getElementById("posts-grid");
 
     if (postGrid) {
@@ -67,12 +74,48 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//scroll
+//verrtica layout
+
+const layoutToggle = document.querySelector("#layoutToggle");
+const headerRight = document.querySelector(".header-right");
+const menuIcon = document.querySelector("#menuIcon");
+const closeIcon = document.querySelector("#closeIcon");
+const pageContainer = document.querySelector(".main-container"); // targeting the specific div
 
 
+layoutToggle.addEventListener("click", function() {
+  headerRight.classList.toggle("vertical-layout");
+  menuIcon.style.display = menuIcon.style.display === 'none' ? 'inline' : 'none';
+  closeIcon.style.display = closeIcon.style.display === 'none' ? 'inline' : 'none';
+
+  // Toggle scrolling
+  if (document.body.style.overflow !== "hidden") {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+
+  if (pageContainer.style.overflow !== "hidden") {
+    pageContainer.style.overflow = "hidden";
+    pageContainer.style.position = "fixed";
+
+  } else {
+    pageContainer.style.overflow = "auto";
+    pageContainer.style.position = "relative";
+  }
+
+});
 
 
+function adjustBodyPadding() {
+  // Get the height of the header
+  var headerHeight = document.querySelector('.header').offsetHeight;
 
+  // Set the top padding of the body to the height of the header
+  document.body.style.paddingTop = headerHeight + 'px';
+}
+
+// Update the padding when the window is resized
 
 
 

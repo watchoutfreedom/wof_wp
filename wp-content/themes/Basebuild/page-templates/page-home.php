@@ -15,6 +15,7 @@ get_header(); ?>
       while ( have_posts() ) : the_post(); ?>
     <section>
         <div class="featured">
+            <div class="featured__title">RECOMENDAMOS</div>
             <div class="img__wrap">
                 <a href="<?php echo get_permalink() ?>"><?php echo get_the_post_thumbnail(); ?></a>
             </div>  
@@ -53,7 +54,6 @@ get_header(); ?>
             <h2><a href="<?php echo get_permalink() ?>"><?php echo the_title() ?></a></h2>
             <p><?php echo get_field('excerpt') ?></p>
             <div class="author"><span><?php the_author(); ?></span></div>
-            <hr>
         </div>
     </section>
     <?php endwhile; } ?>

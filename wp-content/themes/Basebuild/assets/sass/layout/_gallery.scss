@@ -4,7 +4,7 @@
   justify-content: center;
   overflow: hidden;
   max-width: 100%;
-  max-height: 500px;
+  max-height: 200px;
 
     a {
 
@@ -111,4 +111,15 @@
     height: auto;
     margin: 0 auto;
     display: block;
+  }
+
+
+  @media only screen and (min-width: 1024px) {
+
+    .img__wrap {
+
+      max-height: 500px;
+
+    }
+
   }
