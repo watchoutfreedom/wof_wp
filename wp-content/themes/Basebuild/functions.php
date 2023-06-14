@@ -194,9 +194,9 @@ function register_user($post_id){
     // create user
     $user_id = wp_insert_user([
       'user_pass'				=> $password,
-      'user_login' 			=> $user_email,
+      'user_login' 			=> $_POST['acf']['field_6382c10939765'],
       'user_email'      => $user_email,
-      'first_name' => ( ! empty($_POST['acf']['field_599c479c8c0a9']) ? $_POST['acf']['field_599c479c8c0a9'] : '' ),
+      'first_name' => ( ! empty($_POST['acf']['field_6382c10939765']) ? $_POST['acf']['field_6382c10939765'] : '' ),
       'last_name' => ( ! empty($_POST['acf']['field_599c480e8c0aa']) ? $_POST['acf']['field_599c480e8c0aa'] : '' ),
       'role' => 'contributor'
     ]);
