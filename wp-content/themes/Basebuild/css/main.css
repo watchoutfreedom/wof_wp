@@ -305,6 +305,13 @@ section p {
   letter-spacing: 1px;
   margin: 1rem auto;
   display: block;
+  border: 2px solid black;
+}
+
+.button:hover {
+  background-color: white;
+  color: blue;
+  border: 2px dashed blue;
 }
 
 .bottom-action {
@@ -686,7 +693,7 @@ section p {
   justify-content: center;
   overflow: hidden;
   max-width: 100%;
-  max-height: 200px;
+  max-height: 400px;
 }
 .img__wrap a {
   width: 100%;

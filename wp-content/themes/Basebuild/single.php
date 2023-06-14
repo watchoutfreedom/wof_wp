@@ -17,6 +17,15 @@ get_header(); ?>
                 <?php }
                       else{?>
                         <h1><?php the_title(); ?></h1>
+                        <h5>
+                            <?php if(get_field('type')){ ?>
+                            <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span> | 
+                            <?php } ?>
+
+                            <?php if(get_field('price')){ ?>
+                                <span class="price"><?php echo get_field('price')." €" ?></span>
+                            <?php } ?>
+                        </h5>
                     <?php }
                 
                 $images = get_field('images');
@@ -105,41 +114,31 @@ get_header(); ?>
 
                 <?php } ?>
 
-
-                <?php if(get_post_type() == 'product'){ ?>
-                    <?php if(get_field('type')){ ?>
-                    <span class="type"><a href="<?php echo "/".get_post_type()."?type=".get_field_object('type')['value'] ?>"><?php echo get_field_object('type')['choices'][get_field_object('type')['value']]?></a></span> | 
-                    <?php } ?>
-
-                    <?php if(get_field('price')){ ?>
-                        <span class="price"><?php echo get_field('price')." €" ?></span>
-                        <?php } ?>
-
-                <?php } ?>
             </h5>
             <div class="content">
                 <?php 
                     echo get_field('description');
                 ?>
             </div>
-            <?php if(get_post_type() == "post"){ ?>
             <?php 
-                $bibliography = get_field('bibliography');
-                if(!empty($bibliography)){ ?>
-                    <h2 class="bibliography__heading">Bibliografía</h2>
-                    <div class="bibliography">
-                        <ul>
-                        <?php foreach($bibliography as $book) {
-                            if (!empty($book['book'])) { // check if each book is not empty
+                if(get_post_type() == "post") {
+                    $bibliography = get_field('bibliography');
+                    // Remove empty books from bibliography
+                    $filteredBibliography = array_filter($bibliography, function($book) {
+                        return !empty($book['book']);
+                    });
+
+                    if(!empty($filteredBibliography)){ ?>
+                        <h2 class="bibliography__heading">Bibliografía</h2>
+                        <div class="bibliography">
+                            <ul>
+                            <?php foreach($filteredBibliography as $book) {
                                 echo "<li>".$book['book']."</li>"; 
-                            }
-                        } ?>
-                        </ul>
-                    </div>
-            <?php } ?>
-            <?php } ?>
-
-
+                            } ?>
+                            </ul>
+                        </div>
+                    <?php }
+             } ?>
 
             <div>
             <?php if(get_post_type() == "activity"){ ?>
