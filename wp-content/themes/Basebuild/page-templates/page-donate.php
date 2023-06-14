@@ -18,7 +18,6 @@ get_header(); ?>
     <div>
         <!-- <a href="" class="button">BTC</a> -->
     </div>
-    <p>O puedes  aportar con un  ingreso directo en la cuenta: ES193139000313
     </p>
     <a class="button grey" href="/colabora">VOLVER</a>
 </div>

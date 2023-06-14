@@ -89,6 +89,15 @@
     letter-spacing: 1px;
     margin: 1rem auto;
     display: block;
+    border: 2px solid black;
+
+}
+
+.button:hover {
+
+    background-color: white;
+    color: blue;
+    border: 2px dashed blue;
 
 }
 
