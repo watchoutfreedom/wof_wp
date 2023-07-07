@@ -16,7 +16,7 @@ get_header(); ?>
         <a href="https://buy.stripe.com/9AQ5kl3CYaIvgRW6ou" class="button">FIAT</a>
     </div>
     <div>
-        <!-- <a href="" class="button">BTC</a> -->
+        <a href="https://pagosinreglas.ddns.net/plugins/lnbank/lnurl/4165ff8c-2fc8-4e0f-ae43-b7d3d3852322" class="button">BTC</a>
     </div>
     </p>
     <a class="button grey" href="/colabora">VOLVER</a>
