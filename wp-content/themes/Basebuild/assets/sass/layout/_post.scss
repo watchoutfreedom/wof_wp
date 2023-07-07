@@ -174,3 +174,34 @@
     padding: 0.2rem 0.4rem;    
 
   }
+
+  .single-post {
+
+    a {
+
+        text-decoration: underline;
+
+    }
+
+    a:hover{
+
+        text-decoration: underline;
+
+    }
+
+    blockquote {
+
+        padding: 10px 20px;
+
+        em {
+
+            margin: 0 20px;
+            font-size: 1.1rem;
+            color: #9f9f9f;
+            hyphens: auto;
+
+        }
+
+    }
+
+  }
