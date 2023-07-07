@@ -924,4 +924,21 @@ section p {
   text-decoration: underline;
   color: #333;
   padding: 0.2rem 0.4rem;
+}
+
+.single-post a {
+  text-decoration: underline;
+}
+.single-post a:hover {
+  text-decoration: underline;
+}
+.single-post blockquote {
+  padding: 10px 20px;
+}
+.single-post blockquote em {
+  margin: 0 20px;
+  font-size: 1.1rem;
+  color: #9f9f9f;
+  -webkit-hyphens: auto;
+          hyphens: auto;
 }/*# sourceMappingURL=main.css.map */
