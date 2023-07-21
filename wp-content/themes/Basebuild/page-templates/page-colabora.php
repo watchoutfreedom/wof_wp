@@ -18,8 +18,9 @@ get_header(); ?>
     <section>
         <h2>1. Puedes asociarte con una cuota anual o donación.</h2>
         <p>
-            Puedes asociarte con una cuota anual o donación. Donando <strong>1 eur al mes</strong>, tendrás acceso a la información sobre los eventos que organicemos, además de otras ventajas.
+            Puedes asociarte con una cuota anual o donación. Tendrás acceso a la información sobre los eventos que organicemos, además de otras ventajas.
         </p>
+        <a class="button" href="https://buy.stripe.com/cN23cd1uQ4k7cBGeV2">ASOCIARME</a>
         <a class="button" href="/donate">DONAR</a>
     </section>
     <section>
