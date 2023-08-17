@@ -24,6 +24,7 @@ get_header();?>
     
     
     acf_form([
+            'id' => 'register_new_user',
             'field_groups' => [ 283 ],
             'post_id'      => 'new_user',
             'return' => $redirect,

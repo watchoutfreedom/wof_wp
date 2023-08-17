@@ -183,23 +183,47 @@ function populate_answer_to($field) {
 
 add_filter('acf/prepare_field/key=field_6375339e513ad', 'populate_answer_to');
 
-function register_user($post_id){
+function register_user($post_id,$form){
 
-	if ( $post_id == 'new_user' ){
+  // Check that we are targeting the right form. I do this by checking the acf_form ID.
+	if ( ! isset( $form['id'] ) || 'register_new_user' != $form['id'] ) {
+		return $post_id;
+	}
 
-    $user_email = $_POST['acf']['field_6382c14839766'];
-    $password = $_POST['acf']['field_6382c1b639768'];
-      
+  // Create an empty array to add user field data into
+	$user_fields = array();
 
-    // create user
-    $user_id = wp_insert_user([
-      'user_pass'				=> $password,
-      'user_login' 			=> $_POST['acf']['field_6382c10939765'],
-      'user_email'      => $user_email,
-      'first_name' => ( ! empty($_POST['acf']['field_6382c10939765']) ? $_POST['acf']['field_6382c10939765'] : '' ),
-      'last_name' => ( ! empty($_POST['acf']['field_599c480e8c0aa']) ? $_POST['acf']['field_599c480e8c0aa'] : '' ),
-      'role' => 'contributor'
-    ]);
+  	// Check for the fields we need in our postdata, and add them to the $user_fields array if they exist
+	if ( isset( $_POST['acf']['field_6382c10939765'] ) ) {
+		$user_fields['first_name'] = sanitize_text_field( $_POST['acf']['field_6382c10939765']);
+	}
+
+	if ( isset( $_POST['acf']['field_599c480e8c0aa'] ) ) {
+		$user_fields['last_name'] = sanitize_text_field( $_POST['acf']['field_599c480e8c0aa'] );
+	}
+
+	if ( isset( $_POST['acf']['field_6382c14839766'] ) ) {
+		$user_fields['user_login'] = sanitize_user( $_POST['acf']['field_6382c14839766'] );
+	}
+
+	if ( isset( $_POST['acf']['field_6382c14839766'] ) ) {
+		$user_fields['user_email'] = sanitize_email( $_POST['acf']['field_6382c14839766']);
+	}
+
+	if ( isset( $_POST['acf']['field_6382c1b639768'] ) ) {
+		$user_fields['user_pass'] = $_POST['acf']['field_6382c1b639768'];
+	}
+
+	if ( isset( $_POST['acf']['field_6382c10939765'], $_POST['acf']['field_599c480e8c0aa'] ) ) {
+		$user_fields['display_name'] = sanitize_text_field( $_POST['acf']['field_6382c10939765'] . ' ' . $_POST['acf']['field_599c480e8c0aa'] );
+	}
+
+  $user_id = wp_insert_user( $user_fields );
+
+
+  if ( is_wp_error( $user_id ) ) {
+		wp_die( $user_id->get_error_message() );
+	} else {
 
     // update phone and skills
     update_field('field_6382d30135418',$_POST['acf']['field_6382c15c39767'],'user_'.$user_id);
@@ -209,15 +233,16 @@ function register_user($post_id){
 
 
     //auto login user
-    wp_set_current_user( $user_id, $user_email );
+    wp_set_current_user( $user_id, $user_fields['user_email'] );
     wp_set_auth_cookie( $user_id );
-    do_action( 'wp_login', $user_email, get_user_by('id',$user_id) );
+    do_action( 'wp_login', $user_fields['user_email'], get_user_by('id',$user_id) );
 
+
+		// Set the 'post_id' to the newly created user_id, including the 'user_' ACF uses to target a user
+		return 'user_' . $user_id;
+	  }
   }
-
-  return $post_id;
-}
-add_filter('acf/pre_save_post','register_user');
+add_filter('acf/pre_save_post','register_user', 10, 2);
 
 
 function my_acf_validate_email( $valid, $value, $field, $input_name ) {
