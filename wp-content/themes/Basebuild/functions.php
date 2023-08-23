@@ -299,7 +299,8 @@ function change_role_name() {
   $wp_roles->roles['contributor']['name'] = 'Conversador';
   $wp_roles->role_names['contributor'] = 'Conversador';           
 }
-add_action('init', 'change_role_name');
+add_action('init', 'change
+_role_name');
 
 // fix for navbar not showing up when logged in
 add_action('wp_head', 'mbe_wp_head');
@@ -327,5 +328,27 @@ function mbe_wp_head(){
 
 
 add_filter( 'admin_email_check_interval', '__return_false' );
+
+
+/********************************
+ADD ADDITIONAL TOOLBAR SET TO ACF WYSIWYG
+********************************/
+if ( function_exists( 'get_field' ) ) {
+  add_filter( 'acf/fields/wysiwyg/toolbars' , 'qd_toolbars'  );
+  function qd_toolbars( $toolbars )
+  {
+    //INJECT/ADD AN OPTION INTO THE BASIC TOOLBAR
+    $toolbars['Basic' ][1] = array_merge( array_slice( $toolbars['Basic' ][1], 0, 3, true ), array( 'subscript','superscript' ), array_slice( $toolbars['Basic' ][1], 3, null, true ) );
+
+    //FIND MORE INFO ABOUT THIS OPERATION AT http://www.advancedcustomfields.com/resources/customize-the-wysiwyg-toolbars/
+    // Add a new toolbar called "Very Simple"
+    // - this toolbar has only 1 row of buttons
+    $toolbars['Very Simple' ] = array();
+    $toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'underline', 'link', 'unlink' );
+
+    // return $toolbars - IMPORTANT!
+    return $toolbars;
+  }
+}
 
 ?>
