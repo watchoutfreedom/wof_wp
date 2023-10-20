@@ -20,7 +20,14 @@ get_header(); ?>
         <p>
             Puedes asociarte con una cuota anual o donación. Tendrás acceso a la información sobre los eventos que organicemos, además de otras ventajas.
         </p>
-        <a class="button" href="https://buy.stripe.com/cN23cd1uQ4k7cBGeV2">ASOCIARME</a>
+        <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+        <stripe-pricing-table pricing-table-id="prctbl_1O3HmgGsxSUQmlTTVSuEq2Rw"
+        publishable-key="pk_live_51Kz4S0GsxSUQmlTTi5auNcSejQ4sdpPC14eSiC9JuFJgyDHTlC2zjYPzBcq6G87JL7ykySo0imi3WeYI6AbaC42i00JcRtgfvK">
+        </stripe-pricing-table>
+
+        <p>
+            O puedes donar libremente en FIAT o BTC:
+        </p>
         <a class="button" href="/donate">DONAR</a>
     </section>
     <section>

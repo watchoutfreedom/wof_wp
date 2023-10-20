@@ -213,6 +213,7 @@ get_header(); ?>
         'meta_key'      => 'answer_to',
         'meta_value'    => get_the_ID()
     ));
+
     
     if(!empty($posts)):?>
 
@@ -221,13 +222,16 @@ get_header(); ?>
 
         <ul>
         <?php
-            foreach($posts as $post)
-                echo "<li><a href='".get_permalink($post->ID)."'>".$post->post_title."</a> por ".$post->the_author_meta( 'user_nicename' , the_author() );"</li>";?>
+            foreach($posts as $post){
+                echo "<li><span><a href='".get_permalink($post->ID)."'>".$post->post_title."</a> por ".get_the_author_meta('display_name', $post->post_author )."</span></li>";
+                
+            }?>
         </ul>
     </section>
 
     <?php endif; ?>
 
 </div>
+
 
 <?php wp_footer(); ?>

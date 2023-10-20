@@ -25,6 +25,30 @@ get_header(); ?>
 						<a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
 						<p><?php echo get_field('excerpt',get_the_ID()) ?></p>
 						<div class="author"><span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span></div>
+						<?php
+						$my_posts = get_posts(array(
+							'numberposts'   => -1,
+							'post_type'     => 'post',
+							'meta_key'      => 'answer_to',
+							'meta_value'    => get_the_ID()
+							));
+
+
+							if(!empty($my_posts)):?>
+
+							<div class="answers">
+								<h2>Respuestas</h2>
+
+								<ul>
+								<?php
+									foreach($my_posts as $my_post){
+										echo "<li><span><a href='".get_permalink($my_post->ID)."'>".$my_post->post_title."</a> por ".get_the_author_meta('display_name', $my_post->post_author )."</span></li>";
+										
+									}?>
+								</ul>
+							</div>
+							<?php endif ?>
+
 						<hr>
 					</div>
 				</section>

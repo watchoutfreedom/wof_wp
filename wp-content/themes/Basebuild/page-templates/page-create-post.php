@@ -7,7 +7,7 @@
 
 $post = get_post($_GET['id']);
 
-//add redirect if user can't edit thist post
+//add redirect if user can't edit this post
 if(!is_user_logged_in()){
     set_transient( 'originalRegisterRefererURL', $_SERVER['HTTP_REFERER'], 60 * 60 * 24 );
     wp_redirect( wp_login_url() );
@@ -59,4 +59,17 @@ get_header(); ?>
     
     ?>
 </div>
+
+<script>
+        
+    jQuery("form").submit(function(e){
+
+        if(tinymce.activeEditor.getContent({format : 'text'}).length < 500){
+        e.preventDefault();
+        e.stopPropagation(); // Prevent the acf object from ever hearing about this form submission
+        alert("Respuesta no tiene un mínimo 500 caracteres");
+        }
+        });
+</script>
+
 <?php wp_footer() ?>
