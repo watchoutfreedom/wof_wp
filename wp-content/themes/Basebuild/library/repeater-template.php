@@ -1,4 +1,5 @@
-<?php if($args['type'] == null || $args['type'] == get_field('type',get_the_ID())){ ?>
+<?php if(($args['type'] == null || $args['type'] == get_field('type',get_the_ID())) 
+        && !get_field('answer_to',get_the_ID())){ ?>
 <section>
     <div class="img__wrap"><a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a></div>
     <div class="post_type">
@@ -7,6 +8,7 @@
         if ($postType = get_post_type_object(get_post_type())) {
             if(get_post_type() == 'post'){
                 echo esc_html($postType->labels->singular_name);
+                
             }
         }
         ?>
@@ -40,6 +42,33 @@
         <span><?php the_author_meta( 'user_nicename' , the_author() ); ?></span>
     </div>
     <?php } ?>
+        
+    <?php
+   $posts = get_posts(array(
+    'numberposts'   => -1,
+    'post_type'     => 'post',
+    'meta_key'      => 'answer_to',
+    'meta_value'    => get_the_ID()
+    ));
+
+
+    if(!empty($posts)):?>
+
+    <div class="answers">
+        <h2>Respuestas</h2>
+
+        <ul>
+        <?php
+            foreach($posts as $post){
+                echo "<li><span><a href='".get_permalink($post->ID)."'>".$post->post_title."</a> por ".get_the_author_meta('display_name', $post->post_author )."</span></li>";
+                
+            }?>
+        </ul>
+    </div>
+    <?php endif ?>
+
     <hr>
 </section>
+
+
 <?php } ?>
