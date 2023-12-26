@@ -19,6 +19,7 @@ get_header(); ?>
 		<div id="posts-grid">
 
 			<?php while ( have_posts() ) : the_post(); ?>
+			<?php if(!get_field('answer_to',get_the_ID()) || (get_field('answer_to',get_the_ID()) && get_field('display_answer',get_the_ID()))): ?>
 				<section class="post-item">
 					<div class="">
 						<div class="img__wrap"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a></div>
@@ -52,6 +53,7 @@ get_header(); ?>
 						<hr>
 					</div>
 				</section>
+				<?php endif; ?>
 
 			<?php endwhile; ?>
 		

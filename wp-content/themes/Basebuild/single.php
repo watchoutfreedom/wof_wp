@@ -173,6 +173,25 @@ get_header(); ?>
 
     </section>
 
+    <?php if(get_post_type() == "post"): ?>
+
+        <section>
+            <div class="about-author">
+                <h2>Sobre el autor</h2>
+                <?php echo get_avatar(get_the_author_meta('ID')); ?>
+                <div class="description">
+                    <h4><?php echo get_the_author_meta("first_name")." ".get_the_author_meta("last_name") ?></h4>
+                <p><?php echo get_field('description', 'user_'.get_the_author_meta('ID')) ?></p>
+                <h5>Habilidades</h5>
+                <p><?php echo get_field('skills', 'user_'.get_the_author_meta('ID')) ?></p>
+                <a href="<?php echo get_field('donar', 'user_'.get_the_author_meta('ID')) ?>"><button>Donar</button></a>
+                </div>
+            </div>
+
+        </section>
+
+    <?php endif; ?>
+
     <?php if(in_array(get_post_type(),array("activity","product","post"))): ?>
         <?php 
 
@@ -213,6 +232,7 @@ get_header(); ?>
         'meta_key'      => 'answer_to',
         'meta_value'    => get_the_ID()
     ));
+
     
     if(!empty($posts)):?>
 
@@ -221,13 +241,16 @@ get_header(); ?>
 
         <ul>
         <?php
-            foreach($posts as $post)
-                echo "<li><a href='".get_permalink($post->ID)."'>".$post->post_title."</a> por ".$post->the_author_meta( 'user_nicename' , the_author() );"</li>";?>
+            foreach($posts as $post){
+                echo "<li><span><a href='".get_permalink($post->ID)."'>".$post->post_title."</a> por ".get_the_author_meta('display_name', $post->post_author )."</span></li>";
+                
+            }?>
         </ul>
     </section>
 
     <?php endif; ?>
 
 </div>
+
 
 <?php wp_footer(); ?>
