@@ -151,7 +151,7 @@
 .main-container {
 
     margin: auto;
-    max-width: 1490px; // Variable breakpoints
+    max-width: 890px; // Variable breakpoints
 
 
 }
@@ -163,6 +163,9 @@
     margin: auto;
     flex-wrap: inherit;
     justify-content: center;
+    background-color: red;
+    background: red;
+
 
 }
 
@@ -173,15 +176,22 @@
     justify-content: center;
     align-items: center;
     width: 200px;
-    max-height: 200px;
-    white-space: nowrap;
-    overflow: hidden;
+    // max-height: 200px;
+    white-space: normal;
+    overflow: visible;
     text-overflow: ellipsis;
     margin: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+            line-clamp: 1; 
+    -webkit-box-orient: vertical;
 
     h2 {
 
         font-size: $font-size-03;
+        text-align: center;
+        text-overflow: ellipsis;
 
     }
 

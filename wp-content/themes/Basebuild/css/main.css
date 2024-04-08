@@ -344,7 +344,7 @@ section p {
 
 .main-container {
   margin: auto;
-  max-width: 840px;
+  max-width: 890px;
 }
 
 .contrib__list {
@@ -353,6 +353,8 @@ section p {
   margin: auto;
   flex-wrap: inherit;
   justify-content: center;
+  background-color: red;
+  background: red;
 }
 
 .contributor {
@@ -361,14 +363,19 @@ section p {
   justify-content: center;
   align-items: center;
   width: 200px;
-  max-height: 200px;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
+  overflow: visible;
   text-overflow: ellipsis;
   margin: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
 }
 .contributor h2 {
   font-size: 18px;
+  text-align: center;
+  text-overflow: ellipsis;
 }
 .contributor .avatar {
   border-radius: 300px;
@@ -926,15 +933,23 @@ section p {
   padding: 0.2rem 0.4rem;
 }
 
+.single-product a,
+.single-activity a,
 .single-post a {
   text-decoration: underline;
 }
+.single-product a:hover,
+.single-activity a:hover,
 .single-post a:hover {
   text-decoration: underline;
 }
+.single-product blockquote,
+.single-activity blockquote,
 .single-post blockquote {
   padding: 10px 20px;
 }
+.single-product blockquote em,
+.single-activity blockquote em,
 .single-post blockquote em {
   margin: 0 20px;
   font-size: 1.1rem;

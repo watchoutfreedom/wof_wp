@@ -1,4 +1,5 @@
-<?php if($args['type'] == null || $args['type'] == get_field('type',get_the_ID())){ ?>
+<?php if(($args['type'] == null || $args['type'] == get_field('type',get_the_ID())) 
+        && !get_field('answer_to',get_the_ID())){ ?>
 <section>
     <div class="img__wrap"><a href="<?php echo get_permalink() ?>"><?php echo the_post_thumbnail(); ?></a></div>
     <div class="post_type">

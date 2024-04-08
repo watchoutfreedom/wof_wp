@@ -18,7 +18,7 @@ get_header();
     ?>
         <section><p>¡GRACIAS! 
 
-        Además, puedes asociarte a Wof! y  ayúdanos a difundir información de calidad en temas clave de nuetro tiempo, además de impulsar iniciativas de cooperación social entre diferentes ideologías.  Entérate antes de nuestras oprortunidades  y ventajas  para ti.</p>
+        Además, cuando lo desees, también puedes asociarte a Wof!</p>
 
         <a class="button" href="/colabora">COLABORA</a>
         <a class="button grey" href="/">VOLVER</a>

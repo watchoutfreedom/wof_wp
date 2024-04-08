@@ -28,7 +28,7 @@
   }
   ?>
   <?php if(is_single()){
-    $title = "Watch Out, Freedom! | ".get_the_title();
+    $title = "".get_the_title();
     $description = get_field("excerpt");
     $image = get_the_post_thumbnail_url();
   }?>

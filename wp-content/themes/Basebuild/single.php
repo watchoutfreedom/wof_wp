@@ -173,6 +173,28 @@ get_header(); ?>
 
     </section>
 
+    <?php if(get_post_type() == "post"): ?>
+
+        <section>
+            <div class="about-author">
+                <h2>Sobre el autor</h2>
+                <?php echo get_avatar(get_the_author_meta('ID')); ?>
+                <div class="description">
+                    <h4><?php echo get_the_author_meta("first_name")." ".get_the_author_meta("last_name") ?></h4>
+                <p><?php echo get_field('description', 'user_'.get_the_author_meta('ID')) ?></p>
+                <p><?php echo get_field('skills', 'user_'.get_the_author_meta('ID')) ?></p>
+                <?php 
+                $donar_link = get_field('donar', 'user_'.get_the_author_meta('ID'));
+                if (!empty($donar_link)): ?>
+                    <a class="button" href="<?php echo $donar_link ?>">Donar al autor</a>
+                <?php endif; ?>
+            </div>
+            </div>
+
+        </section>
+
+    <?php endif; ?>
+
     <?php if(in_array(get_post_type(),array("activity","product","post"))): ?>
         <?php 
 

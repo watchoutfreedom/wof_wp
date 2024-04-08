@@ -350,5 +350,21 @@ if ( function_exists( 'get_field' ) ) {
     return $toolbars;
   }
 }
-
-?>
+add_filter( 'wp_is_application_passwords_available', '__return_false' );
+remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+add_action( 'admin_head', function(){
+    ob_start(); ?>
+    <style>
+        #your-profile > h2,
+        .user-rich-editing-wrap,
+        .user-syntax-highlighting-wrap,
+        .user-admin-color-wrap,
+        .user-description-wrap,
+        .user-comment-shortcuts-wrap,
+        .user-sessions-wrap,
+        .user-admin-bar-front-wrap {
+            display: none;
+        }
+    </style>
+    <?php ob_end_flush();
+});?>
