@@ -182,7 +182,6 @@ get_header(); ?>
                 <div class="description">
                     <h4><?php echo get_the_author_meta("first_name")." ".get_the_author_meta("last_name") ?></h4>
                 <p><?php echo get_field('description', 'user_'.get_the_author_meta('ID')) ?></p>
-<<<<<<< HEAD
                 <p><?php echo get_field('skills', 'user_'.get_the_author_meta('ID')) ?></p>
                 <?php 
                 $donar_link = get_field('donar', 'user_'.get_the_author_meta('ID'));
@@ -190,12 +189,7 @@ get_header(); ?>
                     <a class="button" href="<?php echo $donar_link ?>">Donar al autor</a>
                 <?php endif; ?>
             </div>
-=======
-                <h5>Habilidades</h5>
-                <p><?php echo get_field('skills', 'user_'.get_the_author_meta('ID')) ?></p>
-                <a href="<?php echo get_field('donar', 'user_'.get_the_author_meta('ID')) ?>"><button>Donar</button></a>
-                </div>
->>>>>>> dev
+
             </div>
 
         </section>
